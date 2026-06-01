@@ -21,12 +21,15 @@ public class Main {
 
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     public static JsonObject lang;
+    public static long MOD_CHANNEL;
+    public static JDA jda;
 
     public static void main() throws Exception {
 
         Dotenv dotenv = Dotenv.load();
         String token = dotenv.get("BOT_TOKEN");
         String langJson = dotenv.get("LANGUAGE");
+        MOD_CHANNEL = Long.parseLong(dotenv.get("MOD_ALERT"));
 
         try {
             lang = Main.load(langJson + ".json");
@@ -43,7 +46,7 @@ public class Main {
             builder.addEventListeners(clazz.getDeclaredConstructor().newInstance());
         }
 
-        JDA jda = builder.build();
+        jda = builder.build();
         jda.awaitReady();
 
         List<CommandData> commands = List.of(

@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="" />
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Moderation/MessageFilterListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Moderation/MessageFilterListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/filter.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/filter.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hu_HU.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hu_HU.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +33,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Polokalap"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Polokalap/Ranked_Bot.git",
+    "accountId": "b56a4b36-4951-427e-8fee-a38f7b8dda30"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 6,
   "fromUser": false

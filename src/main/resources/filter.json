@@ -417,6 +417,23 @@
         "nigg",
         "buzi"
       ]
+    },
+    {
+      "name": "Bíztatás önkárosításra",
+      "description": "Az önkárosításra való bíztatást a szerverünk nem tolerálja!",
+      "punishment": "ONE_DAY",
+      "flags": [
+      ],
+      "ignore": [
+      ],
+      "always": [
+        "öld meg magad",
+        "old meg magad",
+        "kys",
+        "kill yourself",
+        "vágj eret",
+        "vagj eret"
+      ]
     }
   ]
 }

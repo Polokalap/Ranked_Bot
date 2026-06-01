@@ -7,6 +7,16 @@
     ],
     "color": [255, 127, 0],
     "footer": "Ranked.hu",
-    "keep_for": 5
+    "keep_for": 5,
+    "alert": {
+      "title": "Moderáció",
+      "description": [
+        "**%username% (%id%)** felhasználó be lett flagelve a következő indok miatt: **%reason%**",
+        "Üzenet: **%message%**",
+        "Időpont: %time%"
+      ],
+      "color": [255, 127, 0],
+      "footer": "Ranked.hu"
+    }
   }
 }

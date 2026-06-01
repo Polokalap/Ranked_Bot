@@ -8,13 +8,15 @@ import mel.Polokalap.Bot.Utils.Punishment;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.managers.channel.concrete.TextChannelManager;
 
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
-import static mel.Polokalap.Bot.Main.lang;
+import static mel.Polokalap.Bot.Main.*;
 
 public class MessageFilterListener extends ListenerAdapter {
 
@@ -95,11 +97,14 @@ public class MessageFilterListener extends ListenerAdapter {
 
     private static void respondBack(Message message, JsonElement flag, Punishment punishment) {
 
+        // Building embed
+
         String name = flag.getAsJsonObject().get("name").getAsString();
         EmbedBuilder embed = new EmbedBuilder();
         StringBuilder descriptionBuilder = new StringBuilder();
+        JsonObject moderation = lang.get("moderation").getAsJsonObject();
 
-        for (JsonElement line : lang.get("moderation").getAsJsonObject().get("description").getAsJsonArray()) {
+        for (JsonElement line : moderation.get("description").getAsJsonArray()) {
 
             descriptionBuilder.append(line.getAsString() + "\n");
 
@@ -107,16 +112,18 @@ public class MessageFilterListener extends ListenerAdapter {
 
         String description = descriptionBuilder
                 .toString()
-                .replace("%flag%", flag.getAsJsonObject().get("name").getAsString())
+                .replace("%flag%", name)
                 .replace("%description%", flag.getAsJsonObject().get("description").getAsString());
 
 
-        JsonArray colors = lang.get("moderation").getAsJsonObject().get("color").getAsJsonArray();
+        JsonArray colors = moderation.get("color").getAsJsonArray();
         Color color = new Color(
                 colors.get(0).getAsInt(),
                 colors.get(1).getAsInt(),
                 colors.get(2).getAsInt()
         );
+
+        // Setting punishment (keep as is)
 
         switch (punishment) {
 
@@ -156,21 +163,64 @@ public class MessageFilterListener extends ListenerAdapter {
 
         }
 
-        embed.setTitle(lang.get("moderation").getAsJsonObject().get("title").getAsString());
+        // Building embed
+
+        embed.setTitle(moderation.get("title").getAsString());
         embed.setDescription(description);
         embed.setColor(color);
-        embed.setFooter(lang.get("moderation").getAsJsonObject().get("footer").getAsString());
+        embed.setFooter(moderation.get("footer").getAsString());
 
-        message.delete().queue();
+        message.delete().queue(); // Delete message (wow no sheesh sherlock)
+
+        // Sending embed TO CHAT
 
         message.getChannel()
                 .sendMessage("<@" + message.getAuthor().getId() + ">")
                 .setEmbeds(embed.build())
-                .queue(sentMessage -> sentMessage.delete().queueAfter(lang.get("moderation").getAsJsonObject().get("keep_for").getAsInt(), TimeUnit.SECONDS));
+                .queue(sentMessage -> sentMessage.delete().queueAfter(moderation.get("keep_for").getAsInt(), TimeUnit.SECONDS));
+
+        // Sending embed to DM
 
         message.getAuthor().openPrivateChannel().flatMap(
                 channel -> channel.sendMessageEmbeds(embed.build())
         ).queue();
+
+        // Alert for mods
+
+        TextChannel channel = jda.getTextChannelById(MOD_CHANNEL);
+        EmbedBuilder modEmbed = new EmbedBuilder();
+        StringBuilder modDescriptionBuilder = new StringBuilder();
+        JsonObject alert = moderation.get("alert").getAsJsonObject();
+
+        for (JsonElement line : alert.get("description").getAsJsonArray()) {
+
+            modDescriptionBuilder.append(line.getAsString() + "\n");
+
+        }
+
+        String alertDescription = modDescriptionBuilder
+                .toString()
+                .replace("%username%", "<@" + message.getAuthor().getId() + ">")
+                .replace("%id%", message.getAuthor().getId())
+                .replace("%reason%", name)
+                .replace("%message%", message.getContentRaw())
+                .replace("%time%", "<t:" + System.currentTimeMillis() + ":S>");
+
+        JsonArray alertColors = alert.getAsJsonObject().get("color").getAsJsonArray();
+        Color alertColor = new Color(
+                alertColors.get(0).getAsInt(),
+                alertColors.get(1).getAsInt(),
+                alertColors.get(2).getAsInt()
+        );
+
+        modEmbed.setTitle(alert.get("title").getAsString());
+        modEmbed.setDescription(alertDescription);
+        modEmbed.setColor(alertColor);
+        modEmbed.setFooter(alert.get("footer").getAsString());
+
+        channel
+                .sendMessageEmbeds(modEmbed.build())
+                .queue();
 
     }
 
