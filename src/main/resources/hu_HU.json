@@ -1,0 +1,12 @@
+{
+  "moderation": {
+    "title": "Az üzeneted törölve lett!",
+    "description": [
+      "Flag: **%flag%**",
+      "A törlés oka: **%description%**"
+    ],
+    "color": [255, 127, 0],
+    "footer": "Ranked.hu",
+    "keep_for": 5
+  }
+}
