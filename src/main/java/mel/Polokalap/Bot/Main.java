@@ -1,20 +1,20 @@
 package mel.Polokalap.Bot;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.interactions.commands.Command;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import org.reflections.Reflections;
 
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class Main {
@@ -49,13 +49,26 @@ public class Main {
         jda = builder.build();
         jda.awaitReady();
 
-        List<CommandData> commands = List.of(
-                Commands.slash("ping", "Replies with Pong!")
-        );
+        List<CommandData> botCommands = new ArrayList<>();
+
+        for (Map.Entry<String, JsonElement> entry : lang.get("commands").getAsJsonObject().entrySet()) {
+
+            JsonObject command = entry.getValue().getAsJsonObject();
+
+            botCommands.add(
+
+                    Commands.slash(
+                            command.get("name").getAsString(),
+                            command.get("description").getAsString()
+                    )
+
+            );
+
+        }
 
         for (Guild guild : jda.getGuilds()) {
 
-            guild.updateCommands().addCommands(commands).queue();
+            guild.updateCommands().addCommands(botCommands).queue();
 
         }
 

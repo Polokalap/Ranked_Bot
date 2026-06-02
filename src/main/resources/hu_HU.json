@@ -49,5 +49,17 @@
         "footer": "Ranked.hu"
       }
     }
+  },
+  "commands": {
+    "ticket": {
+      "name": "ticket-nyitas",
+      "description": "Ticket nyitása",
+      "channel": "ticket-%name%",
+      "created": "Ticket elkészítve: %channel%",
+      "topic": [
+        "⮚ Készítette: %username%",
+        "⮚ Id: %id%"
+      ]
+    }
   }
 }

@@ -1,0 +1,5 @@
+{
+  "commands": [
+    {"ticket-open", "Opens a ticket"}
+  ]
+}

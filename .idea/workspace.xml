@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added a new fiter filtering system that I like to call chunking. Made the chat filter also look at a message it gets updated. Another thing I also added is Buttons under the moderator alert that admins can use to punish the user.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added timeout after a certain amount of flags under 10 seconds.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/OpenTicketCommandListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/commands.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Moderation/MessageFilterListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Moderation/MessageFilterListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hu_HU.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hu_HU.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +74,8 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/home/polokalap/IdeaProjects/RankedBOT/src/main/java/mel/Polokalap/Main.java"
+    "onboarding.tips.debug.path": "/home/polokalap/IdeaProjects/RankedBOT/src/main/java/mel/Polokalap/Main.java",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
   "keyToStringList": {
     "dev.kikugie.stonecutter.projects": []
@@ -85,6 +87,9 @@
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="mel.Polokalap.Bot.Listeners" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="mel.Polokalap.Bot.Listeners.Ticket" />
     </key>
   </component>
   <component name="RunManager">
@@ -131,15 +136,27 @@
       <option name="project" value="LOCAL" />
       <updated>1780424448704</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added timeout after a certain amount of flags under 10 seconds.">
+      <option name="closed" value="true" />
+      <created>1780431204223</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1780431204223</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added self harm flags and a mod alert system." />
     <MESSAGE value="Added a new fiter filtering system that I like to call chunking. Made the chat filter also look at a message it gets updated. Another thing I also added is Buttons under the moderator alert that admins can use to punish the user." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a new fiter filtering system that I like to call chunking. Made the chat filter also look at a message it gets updated. Another thing I also added is Buttons under the moderator alert that admins can use to punish the user." />
+    <MESSAGE value="Added timeout after a certain amount of flags under 10 seconds." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added timeout after a certain amount of flags under 10 seconds." />
   </component>
 </project>
