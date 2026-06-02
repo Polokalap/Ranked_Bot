@@ -8,6 +8,7 @@ import mel.Polokalap.Bot.Utils.CustomButton;
 import mel.Polokalap.Bot.Utils.Punishment;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -15,8 +16,10 @@ import net.dv8tion.jda.api.events.message.MessageUpdateEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
 
-import javax.swing.text.ChangedCharSetException;
 import java.awt.*;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 import static mel.Polokalap.Bot.Main.*;
@@ -24,6 +27,7 @@ import static mel.Polokalap.Bot.Main.*;
 public class MessageFilterListener extends ListenerAdapter {
 
     private static JsonObject filter;
+    private static HashMap<Member, ArrayList<Long>> userFlags = new HashMap<>();
 
     static {
         try {
@@ -324,6 +328,62 @@ public class MessageFilterListener extends ListenerAdapter {
         message.getAuthor().openPrivateChannel().flatMap(
                 channel -> channel.sendMessageEmbeds(embed.build())
         ).queue();
+
+        // Time out user if too many flags in a given amount of time
+
+        userFlags.putIfAbsent(message.getMember(), new ArrayList<>());
+        userFlags.get(message.getMember()).add(System.currentTimeMillis());
+
+        int amountOfFlags = 0;
+
+        for (long value : userFlags.get(message.getMember())) {
+
+            if (System.currentTimeMillis() - value < 10000) amountOfFlags++;
+
+        }
+
+        JsonObject timeout = lang.get("moderation").getAsJsonObject()
+                .get("alert").getAsJsonObject()
+                .get("timeout").getAsJsonObject();
+
+        if (amountOfFlags >= timeout.get("after").getAsInt()) {
+
+            userFlags.get(message.getMember()).clear();
+            message.getMember().timeoutFor(Duration.ofMinutes(timeout.get("punishment").getAsInt())).queue();
+
+            // Building DM embed
+
+            EmbedBuilder dmEmbed = new EmbedBuilder();
+            StringBuilder dmDescriptionBuilder = new StringBuilder();
+
+            for (JsonElement line : timeout.get("description").getAsJsonArray()) {
+
+                dmDescriptionBuilder.append(line.getAsString() + "\n");
+
+            }
+
+            String dmDescription = dmDescriptionBuilder
+                    .toString()
+                    .replace("%time%", "<t:" + (System.currentTimeMillis() / 1000 + (long) timeout.get("punishment").getAsInt() * 60) + ":R>");
+
+
+            JsonArray dmColors = timeout.get("color").getAsJsonArray();
+            Color dmColor = new Color(
+                    dmColors.get(0).getAsInt(),
+                    dmColors.get(1).getAsInt(),
+                    dmColors.get(2).getAsInt()
+            );
+
+            dmEmbed.setTitle(timeout.get("title").getAsString());
+            dmEmbed.setDescription(dmDescription);
+            dmEmbed.setColor(dmColor);
+            dmEmbed.setFooter(timeout.get("footer").getAsString());
+
+            message.getAuthor().openPrivateChannel().flatMap(
+                    channel -> channel.sendMessageEmbeds(dmEmbed.build())
+            ).queue();
+
+        }
 
         // Alert for mods
 

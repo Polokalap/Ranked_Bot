@@ -44,3 +44,4 @@ bin/
 
 src/test
 **/.env
+run

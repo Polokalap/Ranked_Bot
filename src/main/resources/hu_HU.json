@@ -36,6 +36,17 @@
           "style": "DANGER",
           "done": "Felhasználó %user% **(%id%)** ki lett bannolva!"
         }
+      },
+      "timeout": {
+        "after": 3,
+        "punishment": 5,
+        "title": "Le lettél némítva!",
+        "description": [
+          "Le lettél némítva túl sok nem megengedett üzenet küldése miatt!",
+          "A némításod lejár: %time%"
+        ],
+        "color": [255, 127, 0],
+        "footer": "Ranked.hu"
       }
     }
   }
