@@ -13,10 +13,30 @@
       "description": [
         "**%username% (%id%)** felhasználó be lett flagelve a következő indok miatt: **%reason%**",
         "Üzenet: **%message%**",
-        "Időpont: %time%"
+        "Időpont: %time%",
+        "Csatorna: %path%"
       ],
       "color": [255, 127, 0],
-      "footer": "Ranked.hu"
+      "footer": "Ranked.hu",
+      "actions": {
+        "user_left": "A felhasználó nincs bent a szerveren!",
+        "mute": {
+          "text": "Némítás",
+          "style": "PRIMARY",
+          "done": "Felhasználó %user% **(%id%)** le lett némítva!",
+          "fail": "A felhasználó már le van némítva!"
+        },
+        "kick": {
+          "text": "Kick",
+          "style": "DANGER",
+          "done": "Felhasználó %user% **(%id%)** ki lett kickelve!"
+        },
+        "ban": {
+          "text": "Ban",
+          "style": "DANGER",
+          "done": "Felhasználó %user% **(%id%)** ki lett bannolva!"
+        }
+      }
     }
   }
 }

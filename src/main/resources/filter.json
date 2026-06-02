@@ -2,7 +2,7 @@
   "flags": [
     {
       "name": "Link",
-      "description": "Linkek küldése nem megengedett a szerveren!",
+      "description": "Nem engedett linket küldtél be!",
       "punishment": "NONE",
       "flags": [
         "://"
@@ -278,6 +278,7 @@
         "discord.gg",
         "discord.com/invite",
         "discordapp.com/invite",
+        "dsc.gg",
 
         "hutier.hu",
 

@@ -4,15 +4,18 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import mel.Polokalap.Bot.Main;
+import mel.Polokalap.Bot.Utils.CustomButton;
 import mel.Polokalap.Bot.Utils.Punishment;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageUpdateEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.managers.channel.concrete.TextChannelManager;
+import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
 
+import javax.swing.text.ChangedCharSetException;
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
@@ -44,7 +47,13 @@ public class MessageFilterListener extends ListenerAdapter {
                 .getContentRaw()
                 .toLowerCase()
                 .replace(" ", "")
+                .replace("\\", "")
                 .replace("\n", "");
+
+        String[] splitMessage = event.getMessage()
+                .getContentRaw()
+                .toLowerCase()
+                .split(" ");
 
         if (
                 event.getMember().hasPermission(Permission.MANAGE_CHANNEL) ||
@@ -78,14 +87,145 @@ public class MessageFilterListener extends ListenerAdapter {
 
                 if (message.contains(key.getAsString().toLowerCase())) {
 
+                    boolean contains = false;
+
                     for (JsonElement ignoreKey : flag.getAsJsonObject().get("ignore").getAsJsonArray()) {
 
-                        if (message.contains(ignoreKey.getAsString().toLowerCase())) return;
+                        if (message.contains(ignoreKey.getAsString().toLowerCase())) contains = true;
 
                     }
 
+                    if (!contains) {
+
+                        respondBack(event.getMessage(), flag, punishment);
+                        return;
+
+                    }
+
+                }
+
+                // Chunking
+
+                for (String chunk : splitMessage) {
+
+                    if (chunk.contains(key.getAsString().toLowerCase())) {
+
+                        boolean contains = false;
+
+                        for (JsonElement ignoreKey : flag.getAsJsonObject().get("ignore").getAsJsonArray()) {
+
+                            if (chunk.contains(ignoreKey.getAsString().toLowerCase())) contains = true;
+
+                        }
+
+                        if (!contains) {
+
+                            respondBack(event.getMessage(), flag, punishment);
+                            return;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    @Override
+    public void onMessageUpdate(MessageUpdateEvent event) {
+
+        if (
+                event.getAuthor().isBot() || event.getMember() == null
+        ) return;
+
+        JsonArray flags = filter.get("flags").getAsJsonArray();
+        String message = event.getMessage()
+                .getContentRaw()
+                .toLowerCase()
+                .replace(" ", "")
+                .replace("\\", "")
+                .replace("\n", "");
+
+        String[] splitMessage = event.getMessage()
+                .getContentRaw()
+                .toLowerCase()
+                .split(" ");
+
+        if (
+                event.getMember().hasPermission(Permission.MANAGE_CHANNEL) ||
+                        event.getMember().hasPermission(Permission.MESSAGE_MANAGE)
+        ) return;
+
+        for (JsonElement flag : flags) {
+
+            Punishment punishment;
+
+            try {
+                punishment = Punishment.valueOf(
+                        flag.getAsJsonObject().get("punishment").getAsString().toUpperCase()
+                );
+            } catch (IllegalArgumentException | NullPointerException e) {
+                punishment = Punishment.NONE;
+            }
+
+            for (JsonElement key : flag.getAsJsonObject().get("always").getAsJsonArray()) {
+
+                if (message.contains(key.getAsString().toLowerCase())) {
+
                     respondBack(event.getMessage(), flag, punishment);
                     return;
+
+                }
+
+            }
+
+            for (JsonElement key : flag.getAsJsonObject().get("flags").getAsJsonArray()) {
+
+                if (message.contains(key.getAsString().toLowerCase())) {
+
+                    boolean contains = false;
+
+                    for (JsonElement ignoreKey : flag.getAsJsonObject().get("ignore").getAsJsonArray()) {
+
+                        if (message.contains(ignoreKey.getAsString().toLowerCase())) contains = true;
+
+                    }
+
+                    if (!contains) {
+
+                        respondBack(event.getMessage(), flag, punishment);
+                        return;
+
+                    }
+
+                }
+
+                // Chunking
+
+                for (String chunk : splitMessage) {
+
+                    if (chunk.contains(key.getAsString().toLowerCase())) {
+
+                        boolean contains = false;
+
+                        for (JsonElement ignoreKey : flag.getAsJsonObject().get("ignore").getAsJsonArray()) {
+
+                            if (chunk.contains(ignoreKey.getAsString().toLowerCase())) contains = true;
+
+                        }
+
+                        if (!contains) {
+
+                            respondBack(event.getMessage(), flag, punishment);
+                            return;
+
+                        }
+
+                    }
 
                 }
 
@@ -204,7 +344,8 @@ public class MessageFilterListener extends ListenerAdapter {
                 .replace("%id%", message.getAuthor().getId())
                 .replace("%reason%", name)
                 .replace("%message%", message.getContentRaw())
-                .replace("%time%", "<t:" + System.currentTimeMillis() + ":S>");
+                .replace("%time%", "<t:" + System.currentTimeMillis() / 1000 + ":S>")
+                .replace("%path%", "<#" + message.getChannelId() + ">");
 
         JsonArray alertColors = alert.getAsJsonObject().get("color").getAsJsonArray();
         Color alertColor = new Color(
@@ -218,8 +359,19 @@ public class MessageFilterListener extends ListenerAdapter {
         modEmbed.setColor(alertColor);
         modEmbed.setFooter(alert.get("footer").getAsString());
 
+        JsonObject actions = alert.get("actions").getAsJsonObject();
+
+        CustomButton muteUser = new CustomButton(actions.get("mute").getAsJsonObject().get("text").getAsString(), "moderation_mute_user_" + message.getAuthor().getId(), ButtonStyle.valueOf(actions.get("mute").getAsJsonObject().get("style").getAsString()));
+        CustomButton kickUser = new CustomButton(actions.get("kick").getAsJsonObject().get("text").getAsString(), "moderation_kick_user_" + message.getAuthor().getId(), ButtonStyle.valueOf(actions.get("kick").getAsJsonObject().get("style").getAsString()));
+        CustomButton banUser = new CustomButton(actions.get("ban").getAsJsonObject().get("text").getAsString(), "moderation_ban_user_" + message.getAuthor().getId(), ButtonStyle.valueOf(actions.get("ban").getAsJsonObject().get("style").getAsString()));
+
         channel
                 .sendMessageEmbeds(modEmbed.build())
+                .setActionRow(
+                        muteUser.getButton(),
+                        kickUser.getButton(),
+                        banUser.getButton()
+                )
                 .queue();
 
     }
