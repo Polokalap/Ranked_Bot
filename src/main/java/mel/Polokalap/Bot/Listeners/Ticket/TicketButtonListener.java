@@ -44,7 +44,7 @@ public class TicketButtonListener extends ListenerAdapter {
 
             }
 
-            event.reply(actions.get("permissions").getAsString()).setEphemeral(true).queue();
+            event.reply(actions.get("permission").getAsString()).setEphemeral(true).queue();
 
         }
 

@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added timeout after a certain amount of flags under 10 seconds.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/TicketButtonListener.java" afterDir="false" />
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Ticket system">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/OpenTicketCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/OpenTicketCommandListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hu_HU.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hu_HU.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/TicketButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/TicketButtonListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780431204223</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ticket system">
+      <option name="closed" value="true" />
+      <created>1780507853480</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1780507853480</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +162,7 @@
     <MESSAGE value="Added self harm flags and a mod alert system." />
     <MESSAGE value="Added a new fiter filtering system that I like to call chunking. Made the chat filter also look at a message it gets updated. Another thing I also added is Buttons under the moderator alert that admins can use to punish the user." />
     <MESSAGE value="Added timeout after a certain amount of flags under 10 seconds." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added timeout after a certain amount of flags under 10 seconds." />
+    <MESSAGE value="Ticket system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ticket system" />
   </component>
 </project>
