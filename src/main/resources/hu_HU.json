@@ -54,12 +54,40 @@
     "ticket": {
       "name": "ticket-nyitas",
       "description": "Ticket nyitása",
-      "channel": "ticket-%name%",
+      "prefix": "ticket-",
       "created": "Ticket elkészítve: %channel%",
       "topic": [
         "⮚ Készítette: %username%",
         "⮚ Id: %id%"
-      ]
+      ],
+      "fail": "Már van ticketed!",
+      "embed": {
+        "title": "Írd le a problémádat!",
+        "description": [
+          "%user%, köszönjük, hogy nyitott ticketet!",
+          "Csapattagunk hamarosan válaszol, addig kérem írja le a problémáját/kérelmét a folyamat felgyorsítása érdekében!"
+        ],
+        "ping": "@here",
+        "color": [255, 127, 0],
+        "footer": "Ranked.hu - %id%",
+        "actions": {
+          "user_left": "A felhasználó nincs bent a szerveren!",
+          "permission": "Nincs ehez jogod!",
+          "close": {
+            "text": "\uD83D\uDD12 Lezárás",
+            "style": "DANGER",
+            "done": "A ticket sikeresen lezárva!",
+            "timeout": 3,
+            "fail": "Nem sikerült a ticketet törölni!"
+          },
+          "archive": {
+            "text": "\uD83D\uDCC1 Archiválás",
+            "style": "PRIMARY",
+            "done": "A ticket sikeresen archiválva %user% által!",
+            "fail": "Nem sikerült a ticketet archiválni!"
+          }
+        }
+      }
     }
   }
 }
