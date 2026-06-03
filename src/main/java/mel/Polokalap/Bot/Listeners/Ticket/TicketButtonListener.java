@@ -1,9 +1,7 @@
 package mel.Polokalap.Bot.Listeners.Ticket;
 
 import com.google.gson.JsonObject;
-import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.UserSnowflake;
 import net.dv8tion.jda.api.entities.channel.middleman.GuildChannel;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -11,6 +9,7 @@ import net.dv8tion.jda.api.managers.channel.concrete.TextChannelManager;
 
 import java.util.concurrent.TimeUnit;
 
+import static mel.Polokalap.Bot.Main.data;
 import static mel.Polokalap.Bot.Main.lang;
 
 public class TicketButtonListener extends ListenerAdapter {
@@ -25,7 +24,6 @@ public class TicketButtonListener extends ListenerAdapter {
                 .get("embed").getAsJsonObject()
                 .get("actions").getAsJsonObject();
         JsonObject ticket = lang.get("commands").getAsJsonObject().get("ticket").getAsJsonObject();
-        Dotenv dotenv = Dotenv.load();
 
         if (id.startsWith("ticket_close_")) {
 
@@ -69,7 +67,7 @@ public class TicketButtonListener extends ListenerAdapter {
                             String newName = event.getChannel().getName().replace(ticket.get("prefix").getAsString(), ticket.get("archived-prefix").getAsString());
 
                             ((TextChannelManager) channel.getManager())
-                                    .setParent(event.getGuild().getCategoryById(dotenv.get("ARCHIVED_CATEGORY")))
+                                    .setParent(event.getGuild().getCategoryById(data.get("archived-category").getAsLong()))
                                     .setName(newName)
                                     .queue();
 

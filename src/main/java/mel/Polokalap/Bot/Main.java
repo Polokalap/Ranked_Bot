@@ -21,17 +21,18 @@ public class Main {
 
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     public static JsonObject lang;
-    public static long MOD_CHANNEL;
+    public static JsonObject data;
     public static JDA jda;
 
     public static void main() throws Exception {
 
         Dotenv dotenv = Dotenv.load();
         String token = dotenv.get("BOT_TOKEN");
-        String langJson = dotenv.get("LANGUAGE");
-        MOD_CHANNEL = Long.parseLong(dotenv.get("MOD_ALERT"));
+        String langJson;
 
         try {
+            data = Main.load( "data.json");
+            langJson = data.get("language").getAsString();
             lang = Main.load(langJson + ".json");
         } catch (Exception e) {
             throw new RuntimeException(e);

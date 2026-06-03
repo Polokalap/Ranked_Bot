@@ -17,6 +17,7 @@ import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
 import java.awt.*;
 import java.util.EnumSet;
 
+import static mel.Polokalap.Bot.Main.data;
 import static mel.Polokalap.Bot.Main.lang;
 
 public class OpenTicketCommandListener extends ListenerAdapter {
@@ -26,14 +27,13 @@ public class OpenTicketCommandListener extends ListenerAdapter {
 
         JsonObject ticket = lang.get("commands").getAsJsonObject().get("ticket").getAsJsonObject();
         String name = ticket.get("name").getAsString();
-        Dotenv dotenv = Dotenv.load();
 
         if (!event.getName().equals(name)) return;
 
         // Check if channel already exists
 
         Guild guild = event.getGuild();
-        Category category = guild.getCategoryById(dotenv.get("TICKET_CATEGORY"));
+        Category category = guild.getCategoryById(data.get("ticket-category").getAsLong());
 
         for (Channel channel : category.getChannels()) {
 
