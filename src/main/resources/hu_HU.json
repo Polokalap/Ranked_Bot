@@ -62,6 +62,7 @@
         "⮚ Id: %id%"
       ],
       "fail": "Már van ticketed!",
+      "error": "Nem sikerült a ticketet elkészíteni!",
       "embed": {
         "title": "Írd le a problémádat!",
         "description": [
@@ -87,6 +88,26 @@
             "timeout": 1,
             "done": "A ticket sikeresen archiválva %user% által!",
             "fail": "Nem sikerült a ticketet archiválni!"
+          }
+        }
+      }
+    },
+    "ticket-panel": {
+      "name": "ticket-panel",
+      "description": "Ticket panel kiírása",
+      "done": "A ticket panel kész!",
+      "permission": "Nincs jogod ehez!",
+      "embed": {
+        "title": "Hibajegy nyitása",
+        "description": [
+          "Kattints a \uD83D\uDCE8 gombra, hogy nyiss egy hibajegyet!"
+        ],
+        "color": [255, 127, 0],
+        "footer": "Ranked.hu",
+        "actions": {
+          "open": {
+            "text": "\uD83D\uDCE8",
+            "style": "SUCCESS"
           }
         }
       }
