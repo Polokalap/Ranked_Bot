@@ -387,7 +387,7 @@ public class MessageFilterListener extends ListenerAdapter {
 
         // Alert for mods
 
-        TextChannel channel = jda.getTextChannelById(data.get("mod-hannel").getAsLong());
+        TextChannel channel = jda.getTextChannelById(data.get("mod-channel").getAsLong());
         EmbedBuilder modEmbed = new EmbedBuilder();
         StringBuilder modDescriptionBuilder = new StringBuilder();
         JsonObject alert = moderation.get("alert").getAsJsonObject();
