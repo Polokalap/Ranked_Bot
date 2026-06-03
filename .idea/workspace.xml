@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Ticket system">
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Changed &quot;permissions&quot; string check to &quot;permission&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/TicketButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/TicketButtonListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hu_HU.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hu_HU.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780507853480</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Changed &quot;permissions&quot; string check to &quot;permission&quot;">
+      <option name="closed" value="true" />
+      <created>1780507990188</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1780507990188</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +172,7 @@
     <MESSAGE value="Added a new fiter filtering system that I like to call chunking. Made the chat filter also look at a message it gets updated. Another thing I also added is Buttons under the moderator alert that admins can use to punish the user." />
     <MESSAGE value="Added timeout after a certain amount of flags under 10 seconds." />
     <MESSAGE value="Ticket system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ticket system" />
+    <MESSAGE value="Changed &quot;permissions&quot; string check to &quot;permission&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed &quot;permissions&quot; string check to &quot;permission&quot;" />
   </component>
 </project>

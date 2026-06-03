@@ -55,6 +55,7 @@
       "name": "ticket-nyitas",
       "description": "Ticket nyitása",
       "prefix": "ticket-",
+      "archived-prefix": "archived-",
       "created": "Ticket elkészítve: %channel%",
       "topic": [
         "⮚ Készítette: %username%",
@@ -83,6 +84,7 @@
           "archive": {
             "text": "\uD83D\uDCC1 Archiválás",
             "style": "PRIMARY",
+            "timeout": 1,
             "done": "A ticket sikeresen archiválva %user% által!",
             "fail": "Nem sikerült a ticketet archiválni!"
           }
