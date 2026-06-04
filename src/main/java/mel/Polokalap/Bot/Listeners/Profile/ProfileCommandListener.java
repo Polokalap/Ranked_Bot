@@ -110,7 +110,7 @@ public class ProfileCommandListener extends ListenerAdapter {
 
         embed.setColor(alertColor);
         embed.setFooter(profileEmbed.get("footer").getAsString());
-        embed.setThumbnail("https://skins.mcstats.com/bust/" + json.get("uuid").getAsString() + "?w=256");
+        embed.setThumbnail("https://nmsr.jgj52.hu/bust/" + json.get("uuid").getAsString() + "?w=128");
 
         event.replyEmbeds(embed.build()).queue();
 

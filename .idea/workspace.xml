@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added welcome role and welcome messages.">
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added null check for /profile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/ProfileCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/ProfileCommandListener.java" afterDir="false" />
     </list>
@@ -206,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780612800835</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added null check for /profile">
+      <option name="closed" value="true" />
+      <created>1780613264892</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1780613264892</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +234,7 @@
     <MESSAGE value="Fixed an error with double replying to an event and added a ticket panel." />
     <MESSAGE value="Added /profile" />
     <MESSAGE value="Added welcome role and welcome messages." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added welcome role and welcome messages." />
+    <MESSAGE value="Added null check for /profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added null check for /profile" />
   </component>
 </project>
