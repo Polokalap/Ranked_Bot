@@ -28,6 +28,14 @@ public class ProfileCommandListener extends ListenerAdapter {
         if (!event.getName().equals(name)) return;
 
         Member player = event.getOption("player").getAsMember();
+
+        if (player == null) {
+
+            event.reply(profile.get("fail").getAsString()).setEphemeral(true).queue();
+            return;
+
+        }
+
         JsonObject profileEmbed = commands.get("profile").getAsJsonObject().get("embed").getAsJsonObject();
 
         HttpClient client = HttpClient.newHttpClient();
@@ -102,7 +110,7 @@ public class ProfileCommandListener extends ListenerAdapter {
 
         embed.setColor(alertColor);
         embed.setFooter(profileEmbed.get("footer").getAsString());
-        embed.setThumbnail("https://nmsr.jgj52.hu/bust/" + json.get("name").getAsString() + "?w=256");
+        embed.setThumbnail("https://skins.mcstats.com/bust/" + json.get("uuid").getAsString() + "?w=256");
 
         event.replyEmbeds(embed.build()).queue();
 
