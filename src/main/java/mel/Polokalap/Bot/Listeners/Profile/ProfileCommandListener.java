@@ -108,6 +108,12 @@ public class ProfileCommandListener extends ListenerAdapter {
 
         }
 
+        while (embed.getFields().size() % 3 != 0) {
+
+            embed.addField("", "", true);
+
+        }
+
         embed.setColor(alertColor);
         embed.setFooter(profileEmbed.get("footer").getAsString());
         embed.setThumbnail("https://nmsr.jgj52.hu/bust/" + json.get("uuid").getAsString() + "?w=128");

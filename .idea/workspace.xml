@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added null check for /profile">
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Switched back to nmsr.jgj52.hu and set image width from 256 to 128.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/ProfileCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/ProfileCommandListener.java" afterDir="false" />
     </list>
@@ -214,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780613264892</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Switched back to nmsr.jgj52.hu and set image width from 256 to 128.">
+      <option name="closed" value="true" />
+      <created>1780613391023</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1780613391023</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +243,7 @@
     <MESSAGE value="Added /profile" />
     <MESSAGE value="Added welcome role and welcome messages." />
     <MESSAGE value="Added null check for /profile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added null check for /profile" />
+    <MESSAGE value="Switched back to nmsr.jgj52.hu and set image width from 256 to 128." />
+    <option name="LAST_COMMIT_MESSAGE" value="Switched back to nmsr.jgj52.hu and set image width from 256 to 128." />
   </component>
 </project>
