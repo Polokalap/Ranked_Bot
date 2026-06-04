@@ -74,7 +74,7 @@
         "footer": "Ranked.hu - %id%",
         "actions": {
           "user_left": "A felhasználó nincs bent a szerveren!",
-          "permission": "Nincs ehez jogod!",
+          "permission": "Nincs ehhez jogod!",
           "close": {
             "text": "\uD83D\uDD12 Lezárás",
             "style": "DANGER",
@@ -96,7 +96,7 @@
       "name": "ticket-panel",
       "description": "Ticket panel kiírása",
       "done": "A ticket panel kész!",
-      "permission": "Nincs jogod ehez!",
+      "permission": "Nincs jogod ehhez!",
       "embed": {
         "title": "Hibajegy nyitása",
         "description": [
@@ -110,6 +110,29 @@
             "style": "SUCCESS"
           }
         }
+      }
+    },
+    "profile": {
+      "name": "profile",
+      "description": "Játékos profiljának megnyitása",
+      "fail": "Ez a felhasználó nincsen regisztrálva a szerveren!",
+      "options": [
+        {
+          "type": "USER",
+          "name": "player",
+          "description": "A játékos neve",
+          "required": true
+        }
+      ],
+      "embed": {
+        "title": "**%player%** profilja",
+        "description": [
+          "Discord: **%discord%**",
+          "Helyezés: **#%position%**",
+          "Pontok: **%score%**"
+        ],
+        "color": [255, 127, 0],
+        "footer": "Ranked.hu"
       }
     }
   }
