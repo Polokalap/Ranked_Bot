@@ -83,7 +83,7 @@ public class ProfileCommandListener extends ListenerAdapter {
 
         int gamemodeId = 0;
 
-        for (JsonElement emoji : data.get("emojis").getAsJsonArray()) {
+        for (JsonElement emoji : data.get("gamemodes").getAsJsonArray()) {
 
             JsonObject obj = emoji.getAsJsonObject();
 

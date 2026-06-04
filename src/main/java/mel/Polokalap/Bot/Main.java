@@ -48,7 +48,7 @@ public class Main {
         Reflections reflections = new Reflections("mel.Polokalap.Bot.Listeners");
         Set<Class<? extends net.dv8tion.jda.api.hooks.ListenerAdapter>> classes = reflections.getSubTypesOf(net.dv8tion.jda.api.hooks.ListenerAdapter.class);
 
-        JDABuilder builder = JDABuilder.createDefault(token).enableIntents(GatewayIntent.MESSAGE_CONTENT);
+        JDABuilder builder = JDABuilder.createDefault(token).enableIntents(GatewayIntent.MESSAGE_CONTENT, GatewayIntent.GUILD_MEMBERS);
 
         for (Class<? extends net.dv8tion.jda.api.hooks.ListenerAdapter> clazz : classes) {
             builder.addEventListeners(clazz.getDeclaredConstructor().newInstance());

@@ -3,7 +3,14 @@
   "mod-alert": 1511120553036218509,
   "ticket-category": 1511494525179133952,
   "archived-category": 1511795573357936760,
-  "emojis": [
+  "welcome-channel": 1512214194378899467,
+  "default-role": 1512213817776541766,
+  "rules-channel": 1512219221600239646,
+  "plus-emoji": {
+    "name": "plus",
+    "id": 1512215462493163691
+  },
+  "gamemodes": [
     {
       "name": "sword",
       "id": 1512121554190860529

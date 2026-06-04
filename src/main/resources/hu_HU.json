@@ -50,6 +50,17 @@
       }
     }
   },
+  "welcome": {
+    "embed": {
+      "title": "%emoji% | `Csatlakozás`",
+      "description": [
+        "Üdvözlünk a szerveren, %user%!",
+        "Kérlek olvasd el a szabályzatot a %channel% csatornában!"
+      ],
+      "color": [255, 127, 0],
+      "footer": "Ranked.hu"
+    }
+  },
   "commands": {
     "ticket": {
       "name": "ticket-nyitas",
