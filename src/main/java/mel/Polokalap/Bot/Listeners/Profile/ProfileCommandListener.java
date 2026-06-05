@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 
 import java.awt.*;
 import java.io.IOException;
@@ -27,21 +28,29 @@ public class ProfileCommandListener extends ListenerAdapter {
 
         if (!event.getName().equals(name)) return;
 
-        Member player = event.getOption("player").getAsMember();
+        String minecraftName = event.getOption("minecraft_name") != null
+                ? event.getOption("minecraft_name").getAsString()
+                : "";
 
-        if (player == null) {
+        OptionMapping playerOption = event.getOption("player");
+        Member player = playerOption != null ? playerOption.getAsMember() : null;
 
-            event.reply(profile.get("fail").getAsString()).setEphemeral(true).queue();
+        if (player == null && minecraftName.isEmpty()) {
+
+            event.reply(profile.get("missing").getAsString()).setEphemeral(true).queue();
             return;
 
         }
+
+        String requestType = player == null ? "name" : "discord_id";
+        String requestText = player == null ? minecraftName : player.getId();
 
         JsonObject profileEmbed = commands.get("profile").getAsJsonObject().get("embed").getAsJsonObject();
 
         HttpClient client = HttpClient.newHttpClient();
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://api.ranked.hu/v1/player?discord_id=" + player.getId()))
+                .uri(URI.create("https://api.ranked.hu/v1/player?" + requestType + "=" + requestText))
                 .GET()
                 .build();
 
@@ -75,7 +84,7 @@ public class ProfileCommandListener extends ListenerAdapter {
         }
         String description = descriptionBuilder
                 .toString()
-                .replace("%discord%", "<@" + player.getId() + ">")
+                .replace("%discord%", "<@" + json.get("discord_id").getAsString() + ">")
                 .replace("%position%", json.get("position").getAsString())
                 .replace("%score%", json.get("points").getAsString());
 
@@ -90,19 +99,34 @@ public class ProfileCommandListener extends ListenerAdapter {
         embed.setDescription(description);
 
         int gamemodeId = 0;
+        JsonObject tiers = data.get("tiers").getAsJsonObject();
 
         for (JsonElement emoji : data.get("gamemodes").getAsJsonArray()) {
 
             JsonObject obj = emoji.getAsJsonObject();
-
             String tier = json.get("tiers").getAsJsonObject().get(String.valueOf(gamemodeId + 1)).getAsString();
+
+            if (tier.isEmpty()) tier = "unranked";
+
+            JsonArray tierArray = tiers.get(tier.toLowerCase()).getAsJsonArray();
+
+            String fieldValue = Emoji.fromCustom(
+                    tierArray.get(0).getAsJsonObject().get("name").getAsString(),
+                    tierArray.get(0).getAsJsonObject().get("id").getAsLong(),
+                    false
+            ).getAsMention().concat(Emoji.fromCustom(
+                    tierArray.get(1).getAsJsonObject().get("name").getAsString(),
+                    tierArray.get(1).getAsJsonObject().get("id").getAsLong(),
+                    false
+            ).getAsMention());
 
             embed.addField(
                     Emoji.fromCustom(obj.get("name").getAsString(), obj.get("id").getAsLong(), false).getAsMention()
                             + " " +
                             gamemodes.getAsJsonArray().get(gamemodeId).getAsJsonObject().get("html").getAsString(),
-                    tier,
-                    true);
+                    fieldValue,
+                    true
+            );
 
             gamemodeId++;
 

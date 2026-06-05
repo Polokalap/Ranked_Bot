@@ -61,6 +61,17 @@
       "footer": "Ranked.hu"
     }
   },
+  "test-result": {
+    "embed": {
+      "title": "Teszt Eredmény",
+      "description": [
+        "%tester% **%tier%** tiert adott %player% (**%username%**) játékosnak!",
+        "**Játékmód**: %gamemode%"
+      ],
+      "color": [255, 127, 0],
+      "footer": "Ranked.hu"
+    }
+  },
   "commands": {
     "ticket": {
       "name": "ticket-nyitas",
@@ -127,12 +138,19 @@
       "name": "profile",
       "description": "Játékos profiljának megnyitása",
       "fail": "Ez a felhasználó nincsen regisztrálva a szerveren!",
+      "missing": "Állíts be egy játékost!",
       "options": [
         {
           "type": "USER",
           "name": "player",
+          "description": "A játékos Discordja",
+          "required": false
+        },
+        {
+          "type": "STRING",
+          "name": "minecraft_name",
           "description": "A játékos neve",
-          "required": true
+          "required": false
         }
       ],
       "embed": {
