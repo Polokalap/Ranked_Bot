@@ -97,10 +97,25 @@ public class TestResult {
                                 + " " +
                                 gamemodes.get(gamemodeId).getAsJsonObject().get("html").getAsString())
         );
+
+        embed.setThumbnail("https://nmsr.jgj52.hu/bust/" + json.get("uuid").getAsString() + "?w=128");
+
         embed.setColor(color);
         embed.setFooter(resultJson.get("footer").getAsString());
 
-        channel.sendMessageEmbeds(embed.build()).queue();
+        channel
+                .sendMessageEmbeds(embed.build())
+                .queue(
+                        message -> {
+
+                            for (JsonElement element : resultJson.get("reaction-emojis").getAsJsonArray()) {
+
+                                message.addReaction(Emoji.fromUnicode(element.getAsString())).queue();
+
+                            }
+
+                        }
+                );
 
     }
 

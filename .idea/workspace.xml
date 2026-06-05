@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Made it so when the amount of gamemodes % 3 isn't 0m it adds empty columns until it's 0, so it's symmetric.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TestResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/Tiers.java" afterDir="false" />
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added the ability to request a user's profile by Minecraft username.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/ProfileCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/ProfileCommandListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Welcome/UserJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Welcome/UserJoinListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TestResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TestResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hu_HU.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hu_HU.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -234,7 +232,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780613552913</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added the ability to request a user's profile by Minecraft username.">
+      <option name="closed" value="true" />
+      <created>1780691284684</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1780691284684</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +263,7 @@
     <MESSAGE value="Added null check for /profile" />
     <MESSAGE value="Switched back to nmsr.jgj52.hu and set image width from 256 to 128." />
     <MESSAGE value="Made it so when the amount of gamemodes % 3 isn't 0m it adds empty columns until it's 0, so it's symmetric." />
-    <option name="LAST_COMMIT_MESSAGE" value="Made it so when the amount of gamemodes % 3 isn't 0m it adds empty columns until it's 0, so it's symmetric." />
+    <MESSAGE value="Added the ability to request a user's profile by Minecraft username." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the ability to request a user's profile by Minecraft username." />
   </component>
 </project>

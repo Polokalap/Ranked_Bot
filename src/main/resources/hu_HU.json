@@ -58,7 +58,10 @@
         "Kérlek olvasd el a szabályzatot a %channel% csatornában!"
       ],
       "color": [255, 127, 0],
-      "footer": "Ranked.hu"
+      "footer": "Ranked.hu",
+      "reaction-emojis": [
+        "\uD83D\uDC4B"
+      ]
     }
   },
   "test-result": {
@@ -69,7 +72,14 @@
         "**Játékmód**: %gamemode%"
       ],
       "color": [255, 127, 0],
-      "footer": "Ranked.hu"
+      "footer": "Ranked.hu",
+      "reaction-emojis": [
+        "\uD83D\uDC4D",
+        "\uD83D\uDC51",
+        "\uD83C\uDFC6",
+        "\uD83D\uDC94",
+        "\uD83D\uDC80"
+      ]
     }
   },
   "commands": {

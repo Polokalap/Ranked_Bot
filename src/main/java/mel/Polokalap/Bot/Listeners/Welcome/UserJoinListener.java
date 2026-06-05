@@ -60,7 +60,17 @@ public class UserJoinListener extends ListenerAdapter {
         embed.setFooter(embedJson.get("footer").getAsString());
         embed.setThumbnail(event.getMember().getEffectiveAvatarUrl());
 
-        channel.sendMessageEmbeds(embed.build()).queue();
+        channel.sendMessageEmbeds(embed.build()).queue(
+                message -> {
+
+                    for (JsonElement element : embedJson.get("reaction-emojis").getAsJsonArray()) {
+
+                        message.addReaction(Emoji.fromUnicode(element.getAsString())).queue();
+
+                    }
+
+                }
+        );;
 
         guild.addRoleToMember(member, guild.getRoleById(data.get("default-role").getAsLong())).queue();
 
