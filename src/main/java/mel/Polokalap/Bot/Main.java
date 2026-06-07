@@ -26,14 +26,14 @@ import java.util.Set;
 public class Main {
 
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    public static final Dotenv dotenv = Dotenv.load();
     public static JsonObject lang;
     public static JsonObject data;
     public static JDA jda;
     public static JsonArray gamemodes;
 
-    public static void main() throws Exception {
+    public static void main(String[] args) throws Exception {
 
-        Dotenv dotenv = Dotenv.load();
         String token = dotenv.get("BOT_TOKEN");
         String langJson;
 
@@ -55,6 +55,13 @@ public class Main {
         }
 
         jda = builder.build();
+
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+
+            if (jda != null) jda.shutdown();
+
+        }));
+
         jda.awaitReady();
 
         List<CommandData> botCommands = new ArrayList<>();

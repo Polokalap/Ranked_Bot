@@ -173,6 +173,29 @@
         "color": [255, 127, 0],
         "footer": "Ranked.hu"
       }
+    },
+    "queue-ping": {
+      "name": "queue-ping",
+      "description": "Queue ping rangok beállítása",
+      "sent": "A panel el lett küldve!",
+      "role-given": "Megkaptad a %gamemode% queue rangot!",
+      "role-revoked": "El lett véve a %gamemode% queue rangod!",
+      "embed": {
+        "title": "Queue pingek beállítása",
+        "description": [
+          "Válaszd ki, hogy miből szeretnél tesztelni!",
+          "(Kattints rá megint, ha nem szeretnéd a rangot)"
+        ],
+        "color": [255, 127, 0],
+        "footer": "Ranked.hu",
+        "actions": {
+          "selector": {
+            "text": "Válaszd ki a játékmódot!",
+            "added": "Megkaptad a queue ping rangot!",
+            "removed": "El lett véve a queue ping rangod!"
+          }
+        }
+      }
     }
   }
 }

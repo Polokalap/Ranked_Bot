@@ -63,13 +63,19 @@ public class TicketPanelCommandListener extends ListenerAdapter {
                 ButtonStyle.valueOf(embedJson.get("actions").getAsJsonObject().get("open").getAsJsonObject().get("style").getAsString())
         );
 
-        event.reply(ticket.get("done").getAsString()).setEphemeral(true).queue();
         event.getChannel()
                 .sendMessageEmbeds(embed.build())
                 .setActionRow(
                         ticketButton.getButton()
                 )
-                .queue();
+                .queue(
+                        message -> {
+
+                            event.reply(ticket.get("done").getAsString()).setEphemeral(true).queue();
+
+
+                        }
+                );
 
     }
 

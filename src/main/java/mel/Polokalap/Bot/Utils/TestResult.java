@@ -98,7 +98,7 @@ public class TestResult {
                                 gamemodes.get(gamemodeId).getAsJsonObject().get("html").getAsString())
         );
 
-        embed.setThumbnail("https://nmsr.jgj52.hu/bust/" + json.get("uuid").getAsString() + "?w=128");
+        embed.setThumbnail("https://nmsr.jgj52.dev/bust/" + json.get("uuid").getAsString() + "?w=128");
 
         embed.setColor(color);
         embed.setFooter(resultJson.get("footer").getAsString());
