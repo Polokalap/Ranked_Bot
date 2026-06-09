@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added reaction emojis.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Ping/QueuePingPanelCommandListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Ping/QueuePingSelectorButtonListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/CustomSelector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/Database.java" afterDir="false" />
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added queue ping selector">
+      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueJoinLeaveButtonListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueStartSelectorButtonListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/QueueUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/ProfileCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/ProfileCommandListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/Panel/TicketPanelCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/Panel/TicketPanelCommandListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TestResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TestResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/filter.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/filter.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hu_HU.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hu_HU.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,6 +89,7 @@
       <recent name="mel.Polokalap.Bot.Listeners" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="mel.Polokalap.Bot.Listeners.Queue.Panel" />
       <recent name="mel.Polokalap.Bot.Utils" />
       <recent name="mel.Polokalap.Bot.Listeners.Ticket.Panel" />
       <recent name="mel.Polokalap.Bot.Listeners.Ticket" />
@@ -257,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780703910600</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added queue ping selector">
+      <option name="closed" value="true" />
+      <created>1780869407216</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1780869407216</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,6 +284,7 @@
     <MESSAGE value="Made it so when the amount of gamemodes % 3 isn't 0m it adds empty columns until it's 0, so it's symmetric." />
     <MESSAGE value="Added the ability to request a user's profile by Minecraft username." />
     <MESSAGE value="Added reaction emojis." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added reaction emojis." />
+    <MESSAGE value="Added queue ping selector" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added queue ping selector" />
   </component>
 </project>

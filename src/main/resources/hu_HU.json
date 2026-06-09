@@ -82,6 +82,60 @@
       ]
     }
   },
+  "queue": {
+    "limit": 10,
+    "admin": {
+      "embed": {
+        "title": "Queue indítása",
+        "description": [
+          "Válaszd ki a játékmódot, amiből queue-t szeretnél indítani!"
+        ],
+        "color": [255, 127, 0],
+        "footer": "Ranked.hu",
+        "actions": {
+          "start-queue": {
+            "text": "Queue indítása",
+            "style": "PRIMARY",
+            "empty": "Nincsen játékmód kiválasztva!",
+            "started": "Sikeresen elindítottad a %gamemode% queue-t!",
+            "already": "Már van queue-d! Zárd be, hogy indíthass egyet.",
+            "permission": "Nem vagy %gamemode% teszter!"
+          },
+          "stop-queue": {
+            "text": "Queue leállítása",
+            "style": "DANGER"
+          },
+          "selector": {
+            "text": "Válaszd ki a játékmódot!"
+          }
+        }
+      }
+    },
+    "player": {
+      "embed": {
+        "title": "**%gamemode%** queue",
+        "description": [
+          "Lépj le a queue-ba, hogy le legyél tesztelve!",
+          "**Queue**: (%size%)",
+          "%queue%",
+          "**Teszter**:",
+          "%tester%"
+        ],
+        "color": [255, 127, 0],
+        "footer": "Ranked.hu",
+        "actions": {
+          "join-queue": {
+            "text": "Belépés a queue-ba",
+            "style": "PRIMARY"
+          },
+          "leave-queue": {
+            "text": "Kilépés a queue-ből",
+            "style": "DANGER"
+          }
+        }
+      }
+    }
+  },
   "commands": {
     "ticket": {
       "name": "ticket-nyitas",
@@ -196,6 +250,29 @@
           }
         }
       }
+    },
+    "queue-panel": {
+      "name": "queue-panel",
+      "description": "Queue panel kiírása",
+      "cooldown": 2629800000,
+      "done": "A queue panel kész!",
+      "permission": "Nincs jogod ehhez!",
+      "gamemode-selected": "Kiválasztottad a %gamemode% játékmódot!",
+      "not-tester": "Nem vagy %gamemode% teszter!",
+      "no-queue": "Nincsen %gamemode% queue-d!",
+      "no-gamemode": "Nincsen kiválasztva játékmód!",
+      "stopped-queue": "Lezártad a %gamemode% queue-det!",
+      "has-queue": "Már van %gamemode% queue-d!",
+      "started-queue": "Elindítottad a %gamemode% queue-t!",
+      "queue-already-running": "Már van %gamemode% queue!",
+      "not-registered": "Nem vagy regisztrálva! \nEzt meg tudod tenni a [ranked.hu](https://ranked.hu/?login=true) oldalon!",
+      "on-cooldown": "Cooldown-on vagy! Legközelebb ekkor tesztelhetsz: %date%",
+      "joined-queue": "Beléptél a %gamemode% queue-ba!",
+      "queue-host": "Tiéd a queue!",
+      "queue-full": "A queue tele van!",
+      "in-queue": "Már queue-ban vagy!",
+      "left-queue": "Kiléptél a %gamemode% queue-ból!",
+      "not-in-queue": "Nem vagy queue-ban!"
     }
   }
 }
