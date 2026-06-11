@@ -5,14 +5,16 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.components.actionrow.ActionRow;
+import net.dv8tion.jda.api.components.buttons.ButtonStyle;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.channel.concrete.Category;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
-import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
 
+import javax.swing.plaf.ActionMapUIResource;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -94,10 +96,10 @@ public class QueueUtil {
         channel
                 .sendMessage("<@&" + gamemodes.get(gamemode).getAsJsonObject().get("role").getAsString() + ">")
                 .setEmbeds(embed.build())
-                .setActionRow(
+                .addComponents(ActionRow.of(
                         joinButton.getButton(),
                         leaveButton.getButton()
-                )
+        ))
                 .queue(
 
                         message -> {
@@ -208,10 +210,10 @@ public class QueueUtil {
 
                             textChannel
                                     .sendMessageEmbeds(embed.build())
-                                    .setActionRow(
+                                    .addComponents(ActionRow.of(
                                             rateTestButton.getButton(),
                                             closeButton.getButton()
-                                    )
+                                    ))
                                     .queue();
 
                         }
@@ -364,10 +366,10 @@ public class QueueUtil {
 
         message
                 .editMessageEmbeds(embed.build())
-                .setActionRow(
+                .setComponents(ActionRow.of(
                         joinButton.getButton(),
                         leaveButton.getButton()
-                )
+                ))
                 .queue();
 
     }

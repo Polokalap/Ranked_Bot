@@ -6,9 +6,10 @@ import com.google.gson.JsonObject;
 import mel.Polokalap.Bot.Utils.CustomButton;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.components.actionrow.ActionRow;
+import net.dv8tion.jda.api.components.buttons.ButtonStyle;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
 
 import java.awt.*;
 
@@ -67,9 +68,9 @@ public class TicketPanelCommandListener extends ListenerAdapter {
 
         event.getChannel()
                 .sendMessageEmbeds(embed.build())
-                .setActionRow(
+                .addComponents(ActionRow.of(
                         ticketButton.getButton()
-                )
+                ))
                 .queue(
                         message -> {
 

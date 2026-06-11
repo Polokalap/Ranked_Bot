@@ -327,7 +327,11 @@
       "has-queue": "Már van %gamemode% queue-d!",
       "started-queue": "Elindítottad a %gamemode% queue-t!",
       "queue-already-running": "Már van %gamemode% queue!",
-      "not-registered": "Nem vagy regisztrálva! \nEzt meg tudod tenni a [ranked.hu](https://ranked.hu/?login=true) oldalon!",
+      "not-registered": "Nem vagy regisztrálva! \nEzt meg tudod tenni az alábbi oldalon!",
+      "register-button": {
+        "text": "Oldal",
+        "link": "https://ranked.hu/?login=true"
+      },
       "on-cooldown": "Cooldown-on vagy! Legközelebb ekkor tesztelhetsz: %date%",
       "joined-queue": "Beléptél a %gamemode% queue-ba!",
       "queue-host": "Tiéd a queue!",

@@ -3,6 +3,8 @@ package mel.Polokalap.Bot.Listeners.Queue.Panel;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import mel.Polokalap.Bot.Utils.QueueUtil;
+import net.dv8tion.jda.api.components.actionrow.ActionRow;
+import net.dv8tion.jda.api.components.buttons.Button;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
@@ -64,6 +66,22 @@ public class QueueStartSelectorButtonListener extends ListenerAdapter {
 
         JsonObject json = JsonParser.parseString(response.body()).getAsJsonObject();
 
+        if (response.statusCode() >= 400 && response.statusCode() <= 499) {
+
+            event.getHook()
+                    .sendMessage(queue.get("not-registered").getAsString())
+                    .setComponents(ActionRow.of(
+                            Button.link(
+                                    queue.get("register-button").getAsJsonObject().get("link").getAsString(),
+                                    queue.get("register-button").getAsJsonObject().get("text").getAsString()
+                            )
+                    ))
+                    .setEphemeral(true)
+                    .queue();
+            return;
+
+        }
+
         boolean isTester = false;
 
         if (
@@ -81,7 +99,7 @@ public class QueueStartSelectorButtonListener extends ListenerAdapter {
 
         }
 
-        if (queues.containsValue(member)) {
+        if (testing.containsKey(member)) {
 
             event.getHook().sendMessage(queue.get("has-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
             return;

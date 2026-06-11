@@ -5,16 +5,19 @@ import mel.Polokalap.Bot.Utils.QueueUtil;
 import mel.Polokalap.Bot.Utils.TestResult;
 import mel.Polokalap.Bot.Utils.Tiers;
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.components.actionrow.ActionRow;
+import net.dv8tion.jda.api.components.label.Label;
+import net.dv8tion.jda.api.components.textinput.TextInput;
+import net.dv8tion.jda.api.components.textinput.TextInputStyle;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.interaction.ModalInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.interactions.components.text.TextInput;
-import net.dv8tion.jda.api.interactions.components.text.TextInputStyle;
-import net.dv8tion.jda.api.interactions.modals.Modal;
+import net.dv8tion.jda.api.modals.Modal;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -53,12 +56,17 @@ public class QueueTestButtonListener extends ListenerAdapter {
                     false
             ).getAsMention();
 
-            Modal modal = Modal.create("tier-setting-menu-" + testing.get(member).getId(), queue.get("title").getAsString())
-                    .addActionRow(
-                            TextInput.create("tier", queue.get("text").getAsString(), TextInputStyle.SHORT)
-                                .setMaxLength(3)
-                                .setPlaceholder(queue.get("placeholder").getAsString())
-                                .build()
+            TextInput tierInput = TextInput.create("tier", TextInputStyle.SHORT)
+                    .setMaxLength(3)
+                    .setPlaceholder(queue.get("placeholder").getAsString())
+                    .build();
+
+            Modal modal = Modal.create(
+                            "tier-setting-menu-" + testing.get(member).getId(),
+                            queue.get("title").getAsString()
+                    )
+                    .addComponents(
+                            Label.of(queue.get("text").getAsString(), tierInput)
                     )
                     .build();
 

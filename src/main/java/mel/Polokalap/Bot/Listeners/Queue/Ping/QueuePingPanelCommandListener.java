@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import mel.Polokalap.Bot.Utils.CustomSelector;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.components.actionrow.ActionRow;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -86,14 +87,14 @@ public class QueuePingPanelCommandListener extends ListenerAdapter {
 
         if (ephemeral) {
 
-            event.getHook().sendMessageEmbeds(embed.build()).setActionRow(menu.getMenu()).setEphemeral(true).queue();
+            event.getHook().sendMessageEmbeds(embed.build()).addComponents(ActionRow.of(menu.getMenu())).setEphemeral(true).queue();
             return;
 
         }
 
         event.getChannel()
                 .sendMessageEmbeds(embed.build())
-                .setActionRow(menu.getMenu())
+                .addComponents(ActionRow.of(menu.getMenu()))
                 .queue();
 
         event.getHook().sendMessage(queue.get("sent").getAsString()).setEphemeral(true).queue();

@@ -5,6 +5,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.components.actionrow.ActionRow;
+import net.dv8tion.jda.api.components.buttons.ButtonStyle;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
@@ -12,7 +14,6 @@ import net.dv8tion.jda.api.entities.channel.Channel;
 import net.dv8tion.jda.api.entities.channel.concrete.Category;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
-import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
 
 import java.awt.*;
 import java.util.EnumSet;
@@ -121,10 +122,10 @@ public class TicketUtil {
                             channel
                                     .sendMessage(ticket.get("embed").getAsJsonObject().get("ping").getAsString())
                                     .setEmbeds(embed.build())
-                                    .setActionRow(
+                                    .addComponents(ActionRow.of(
                                             closeButton.getButton(),
                                             archiveButton.getButton()
-                                    )
+                                    ))
                                     .flatMap(Message::pin)
                                     .queue();
 
@@ -238,10 +239,10 @@ public class TicketUtil {
                             channel
                                     .sendMessage(ticket.get("embed").getAsJsonObject().get("ping").getAsString())
                                     .setEmbeds(embed.build())
-                                    .setActionRow(
+                                    .addComponents(ActionRow.of(
                                             closeButton.getButton(),
                                             archiveButton.getButton()
-                                    )
+                                    ))
                                     .flatMap(Message::pin)
                                     .queue();
 

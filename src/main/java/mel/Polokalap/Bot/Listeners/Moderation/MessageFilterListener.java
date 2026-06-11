@@ -8,13 +8,14 @@ import mel.Polokalap.Bot.Utils.CustomButton;
 import mel.Polokalap.Bot.Utils.Punishment;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.components.actionrow.ActionRow;
+import net.dv8tion.jda.api.components.buttons.ButtonStyle;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.MessageUpdateEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
 
 import java.awt.*;
 import java.time.Duration;
@@ -427,11 +428,11 @@ public class MessageFilterListener extends ListenerAdapter {
 
         channel
                 .sendMessageEmbeds(modEmbed.build())
-                .setActionRow(
+                .addComponents(ActionRow.of(
                         muteUser.getButton(),
                         kickUser.getButton(),
                         banUser.getButton()
-                )
+                ))
                 .queue();
 
     }
