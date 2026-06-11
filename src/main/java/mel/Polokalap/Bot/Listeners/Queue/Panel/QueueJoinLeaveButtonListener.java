@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import mel.Polokalap.Bot.Utils.QueueUtil;
+import mel.Polokalap.Bot.Utils.Tiers;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
@@ -15,6 +16,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
 
 import static mel.Polokalap.Bot.Main.*;
 import static mel.Polokalap.Bot.Utils.QueueUtil.*;
@@ -77,6 +79,15 @@ public class QueueJoinLeaveButtonListener extends ListenerAdapter {
             if (response.statusCode() >= 400 && response.statusCode() <= 499) {
 
                 event.getHook().sendMessage(queue.get("not-registered").getAsString()).setEphemeral(true).queue();
+                return;
+
+            }
+
+            List<String> highTier = List.of("LT3", "HT3", "LT2", "HT2", "LT1", "HT1");
+
+            if (highTier.contains(json.get("tiers").getAsJsonObject().get(String.valueOf(actualId + 1)).getAsString())) {
+
+                event.getHook().sendMessage(queue.get("high-tier").getAsString()).setEphemeral(true).queue();
                 return;
 
             }

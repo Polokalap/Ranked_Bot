@@ -10,6 +10,7 @@ import net.dv8tion.jda.api.components.buttons.ButtonStyle;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.channel.Channel;
 import net.dv8tion.jda.api.entities.channel.concrete.Category;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
@@ -34,6 +35,7 @@ public class QueueUtil {
     public static HashMap<Integer, Member> getTester = new HashMap<>();
     public static HashMap<Member, Member> testing = new HashMap<>();
     public static HashMap<Integer, Message> queueMessage = new HashMap<>();
+    public static HashMap<Member, TextChannel> memberChannel = new HashMap<>();
 
     public static final int MAX = 3000;
     public static final int N1 = 30;
@@ -146,6 +148,7 @@ public class QueueUtil {
                 data.get("gamemodes").getAsJsonArray().get(gamemode).getAsJsonObject().get("id").getAsLong(),
                 false
         ).getAsMention();
+
         String logo = Emoji.fromCustom(
                 data.get("logo-emoji").getAsJsonObject().get("name").getAsString(),
                 data.get("logo-emoji").getAsJsonObject().get("id").getAsLong(),
@@ -208,6 +211,8 @@ public class QueueUtil {
 
                         textChannel -> {
 
+                            memberChannel.put(player, textChannel);
+
                             textChannel
                                     .sendMessageEmbeds(embed.build())
                                     .addComponents(ActionRow.of(
@@ -229,6 +234,13 @@ public class QueueUtil {
         EmbedBuilder embed = new EmbedBuilder();
         StringBuilder descriptionBuilder = new StringBuilder();
 
+        String gamemodeName = gamemodes.get(gamemode).getAsJsonObject().get("html").getAsString();
+        String emoji = Emoji.fromCustom(
+                data.get("gamemodes").getAsJsonArray().get(gamemode).getAsJsonObject().get("name").getAsString(),
+                data.get("gamemodes").getAsJsonArray().get(gamemode).getAsJsonObject().get("id").getAsLong(),
+                false
+        ).getAsMention();
+
         for (JsonElement element : embedJson.get("description").getAsJsonArray()) {
 
             descriptionBuilder.append(element.getAsString() + "\n");
@@ -238,7 +250,7 @@ public class QueueUtil {
         String description = descriptionBuilder
                 .toString()
                 .replace("%tester%", getTester.get(gamemode).getAsMention())
-                .replace("%gamemode%", gamemodes.get(gamemode).getAsJsonObject().get("html").getAsString());
+                .replace("%gamemode%", emoji + " " + gamemodeName);
 
         JsonArray colors = embedJson.getAsJsonObject().get("color").getAsJsonArray();
         Color color = new Color(
@@ -292,9 +304,9 @@ public class QueueUtil {
 
         if (player == null) return;
 
+        createTicket(guild, tester, player, gamemode);
         testing.put(tester, player);
         removeFromQueue(player, gamemode);
-        createTicket(guild, tester, player, gamemode);
         notifyDm(guild, player, gamemode);
 
     }

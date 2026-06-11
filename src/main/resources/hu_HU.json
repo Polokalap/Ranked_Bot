@@ -341,7 +341,9 @@
       "not-in-queue": "Nem vagy queue-ban!",
       "has-ticket": "Éppen téged tesztelnek!",
       "queue-empty": "Nincsen játékos a queue-ban!",
-      "next-player": "Következő játékos: %player%"
+      "next-player": "Következő játékos: %player%",
+      "testing-someone": "Éppen tesztelsz valakit!",
+      "high-tier": "Magas szinten vagy ebből a játékmódból! Nyiss magas ticketet."
     }
   }
 }

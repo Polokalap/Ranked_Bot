@@ -99,7 +99,7 @@ public class QueueStartSelectorButtonListener extends ListenerAdapter {
 
         }
 
-        if (testing.containsKey(member)) {
+        if (hasQueue.getOrDefault(member, false)) {
 
             event.getHook().sendMessage(queue.get("has-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
             return;
@@ -200,6 +200,13 @@ public class QueueStartSelectorButtonListener extends ListenerAdapter {
 
             }
 
+            if (testing.containsKey(member)) {
+
+                event.getHook().sendMessage(queue.get("testing-someone").getAsString()).setEphemeral(true).queue();
+                return;
+
+            }
+
             hasQueue.put(member, false);
             queues.remove(actualId);
             queueMessage.get(actualId).delete().queue();
@@ -219,6 +226,13 @@ public class QueueStartSelectorButtonListener extends ListenerAdapter {
             if (queues.get(actualId).isEmpty()) {
 
                 event.getHook().sendMessage(queue.get("queue-empty").getAsString()).setEphemeral(true).queue();
+                return;
+
+            }
+
+            if (testing.containsKey(member)) {
+
+                event.getHook().sendMessage(queue.get("testing-someone").getAsString()).setEphemeral(true).queue();
                 return;
 
             }
