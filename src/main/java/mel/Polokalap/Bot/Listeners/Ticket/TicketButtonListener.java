@@ -27,12 +27,14 @@ public class TicketButtonListener extends ListenerAdapter {
 
         if (id.startsWith("ticket_close_")) {
 
+            event.deferReply(true).queue();
+
             if (
                     event.getChannel().getName().replace(ticket.get("prefix").getAsString(), "").equals(event.getMember().getEffectiveName().toLowerCase()) ||
                     event.getMember().hasPermission(Permission.MESSAGE_MANAGE)
             ) {
 
-                event.reply(actions.get("close").getAsJsonObject().get("done").getAsString()).queue(
+                event.getHook().sendMessage(actions.get("close").getAsJsonObject().get("done").getAsString()).queue(
 
                         interactionHook -> {
 
@@ -51,15 +53,17 @@ public class TicketButtonListener extends ListenerAdapter {
 
             }
 
-            event.reply(actions.get("permission").getAsString()).setEphemeral(true).queue();
+            event.getHook().sendMessage(actions.get("permission").getAsString()).setEphemeral(true).queue();
 
         }
 
         if (id.startsWith("ticket_archive_")) {
 
+            event.deferReply(true).queue();
+
             if (event.getMember().hasPermission(Permission.MESSAGE_MANAGE)) {
 
-                event.reply(actions.get("archive").getAsJsonObject().get("done").getAsString().replace("%user%", "<@" + event.getMember().getId() + ">")).queue(
+                event.getHook().sendMessage(actions.get("archive").getAsJsonObject().get("done").getAsString().replace("%user%", "<@" + event.getMember().getId() + ">")).queue(
 
                         interactionHook -> {
 
@@ -92,7 +96,7 @@ public class TicketButtonListener extends ListenerAdapter {
 
             }
 
-            event.reply(actions.get("permission").getAsString()).setEphemeral(true).queue();
+            event.getHook().sendMessage(actions.get("permission").getAsString()).setEphemeral(true).queue();
 
         }
 

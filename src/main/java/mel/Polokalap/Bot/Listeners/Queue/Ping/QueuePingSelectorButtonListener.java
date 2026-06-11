@@ -24,6 +24,8 @@ public class QueuePingSelectorButtonListener extends ListenerAdapter {
         String componentId = event.getComponentId();
         if (!componentId.equals("queue-selector")) return;
 
+        event.deferReply(true).queue();
+
         String selected = event.getValues().get(0);
         int actualId = Integer.parseInt(selected.replace("queue-selector-", ""));
 

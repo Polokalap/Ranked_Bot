@@ -21,9 +21,9 @@ public class Database {
     static {
 
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdcb:postgresql://" + dotenv.get("HOST") + ":" + dotenv.get("PORT") + "/" + dotenv.get("DATABASE"));
-        config.setUsername(dotenv.get("USER"));
-        config.setPassword(dotenv.get("PASSWORD"));
+        config.setJdbcUrl("jdbc:postgresql://" + dotenv.get("DB_HOST") + ":" + dotenv.get("DB_PORT") + "/" + dotenv.get("DB_DATABASE"));
+        config.setUsername(dotenv.get("DB_USER"));
+        config.setPassword(dotenv.get("DB_PASSWORD"));
         config.setMaximumPoolSize(10);
         dataSource = new HikariDataSource(config);
 

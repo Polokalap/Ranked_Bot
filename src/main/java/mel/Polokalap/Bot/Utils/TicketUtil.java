@@ -143,6 +143,8 @@ public class TicketUtil {
         Guild guild = event.getGuild();
         Member member = event.getMember();
 
+        event.deferReply(true).queue();
+
         // Check if channel already exist
 
         Category category = guild.getCategoryById(data.get("ticket-category").getAsLong());
@@ -151,7 +153,7 @@ public class TicketUtil {
 
             if (channel.getName().replace(ticket.get("prefix").getAsString(), "").equals(member.getEffectiveName().toLowerCase())) {
 
-                event.reply(ticket.get("fail").getAsString()).setEphemeral(true).queue();
+                event.getHook().sendMessage(ticket.get("fail").getAsString()).setEphemeral(true).queue();
                 return false;
 
             }
@@ -243,7 +245,7 @@ public class TicketUtil {
                                     .flatMap(Message::pin)
                                     .queue();
 
-                            event.reply(ticket.get("created").getAsString().replace("%channel%", "<#" + channel.getId() + ">")).setEphemeral(true).queue();
+                            event.getHook().sendMessage(ticket.get("created").getAsString().replace("%channel%", "<#" + channel.getId() + ">")).setEphemeral(true).queue();
 
                         }
                 );

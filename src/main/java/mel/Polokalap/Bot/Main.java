@@ -5,6 +5,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
@@ -22,6 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import static mel.Polokalap.Bot.Utils.QueueUtil.queueMessage;
 
 public class Main {
 
@@ -57,6 +60,8 @@ public class Main {
         jda = builder.build();
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+
+            for (Message message : queueMessage.values()) message.delete().queue();
 
             if (jda != null) jda.shutdown();
 

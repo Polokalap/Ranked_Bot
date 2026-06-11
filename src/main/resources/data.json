@@ -11,6 +11,10 @@
     "name": "plus",
     "id": 1512215462493163691
   },
+  "logo-emoji": {
+    "name": "logo",
+    "id": 1514006898884743248
+  },
   "gamemodes": [
     {
       "name": "sword",

@@ -8,7 +8,6 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
-import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.io.IOException;
@@ -16,7 +15,6 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.ArrayList;
 
 import static mel.Polokalap.Bot.Main.*;
 import static mel.Polokalap.Bot.Utils.QueueUtil.*;
@@ -29,21 +27,24 @@ public class QueueJoinLeaveButtonListener extends ListenerAdapter {
         String id = event.getComponentId();
         JsonObject queue = lang.get("commands").getAsJsonObject().get("queue-panel").getAsJsonObject();
         Member member = event.getMember();
+        Guild guild = event.getGuild();
 
         if (id.startsWith("join-queue-")) {
+
+            event.deferReply(true).queue();
 
             int actualId = Integer.parseInt(id.replace("join-queue-", ""));
 
             if (getTester.get(actualId).equals(member)) {
 
-                event.reply(queue.get("queue-host").getAsString()).setEphemeral(true).queue();
+                event.getHook().sendMessage(queue.get("queue-host").getAsString()).setEphemeral(true).queue();
                 return;
 
             }
 
             if (queues.get(actualId).size() >= lang.get("queue").getAsJsonObject().get("limit").getAsInt()) {
 
-                event.reply(queue.get("queue-full").getAsString()).setEphemeral(true).queue();
+                event.getHook().sendMessage(queue.get("queue-full").getAsString()).setEphemeral(true).queue();
                 return;
 
             }
@@ -73,14 +74,14 @@ public class QueueJoinLeaveButtonListener extends ListenerAdapter {
 
             JsonObject json = JsonParser.parseString(response.body()).getAsJsonObject();
 
-            if (response.statusCode() == 400) {
+            if (response.statusCode() >= 400 && response.statusCode() <= 499) {
 
-                event.reply(queue.get("not-registered").getAsString()).setEphemeral(true).queue();
+                event.getHook().sendMessage(queue.get("not-registered").getAsString()).setEphemeral(true).queue();
                 return;
 
             }
 
-            JsonElement cooldownEl = json.get("elos").getAsJsonObject().get("last_tested");
+            JsonElement cooldownEl = json.get("last_tested");
             long lastTest = 0L;
 
             if (cooldownEl != null && cooldownEl.isJsonObject()) {
@@ -95,26 +96,48 @@ public class QueueJoinLeaveButtonListener extends ListenerAdapter {
 
             }
 
-            if (System.currentTimeMillis() - lastTest <= queue.get("cooldown").getAsLong()) {
+            if (System.currentTimeMillis() < lastTest) {
 
-                event.reply(queue.get("on-cooldown").getAsString().replace("%date%", "<t:" + lastTest + queue.get("cooldown").getAsLong() / 1000 + ":R>")).setEphemeral(true).queue();
+                long seconds = lastTest / 1000;
+
+                event.getHook().sendMessage(queue.get("on-cooldown").getAsString().replace("%date%", "<t:" + seconds + ":R>")).setEphemeral(true).queue();
                 return;
 
             }
 
             if (queues.get(actualId).contains(member)) {
 
-                event.reply(queue.get("in-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
+                event.getHook().sendMessage(queue.get("in-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
                 return;
 
             }
 
-            event.reply(queue.get("joined-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
+            if (testing.get(getTester.get(actualId)) != null && testing.get(getTester.get(actualId)).equals(member)) {
+
+                event.getHook().sendMessage(queue.get("has-ticket").getAsString()).setEphemeral(true).queue();
+                return;
+
+            }
+
+            event.getHook().sendMessage(queue.get("joined-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
             QueueUtil.addToQueue(member, actualId);
+
+//            if (queues.get(actualId).size() == 1 && !testing.containsKey(getTester.get(actualId))) {
+//
+//                QueueUtil.newCycle(guild, actualId);
+//
+//            }
 
         }
 
         if (id.startsWith("leave-queue-")) {
+
+            if (testing.containsValue(member)) {
+
+                event.reply(queue.get("has-ticket").getAsString()).setEphemeral(true).queue();
+                return;
+
+            }
 
             int actualId = Integer.parseInt(id.replace("leave-queue-", ""));
 

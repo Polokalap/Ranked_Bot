@@ -24,11 +24,13 @@ public class TicketPanelCommandListener extends ListenerAdapter {
 
         if (!event.getName().equals(name)) return;
 
+        event.deferReply(true).queue();
+
         // Check permission
 
         if (!event.getMember().hasPermission(Permission.MANAGE_CHANNEL)) {
 
-            event.reply(ticket.get("permission").getAsString()).setEphemeral(true).queue();
+            event.getHook().sendMessage(ticket.get("permission").getAsString()).setEphemeral(true).queue();
             return;
 
         }
@@ -71,8 +73,7 @@ public class TicketPanelCommandListener extends ListenerAdapter {
                 .queue(
                         message -> {
 
-                            event.reply(ticket.get("done").getAsString()).setEphemeral(true).queue();
-
+                            event.getHook().sendMessage(ticket.get("done").getAsString()).setEphemeral(true).queue();
 
                         }
                 );

@@ -25,6 +25,8 @@ public class QueuePingPanelCommandListener extends ListenerAdapter {
 
         if (!event.getName().equals(name)) return;
 
+        event.deferReply(true).queue();
+
         boolean ephemeral = true;
 
         if (event.getMember().getPermissions().contains(Permission.MANAGE_CHANNEL)) {
@@ -84,7 +86,7 @@ public class QueuePingPanelCommandListener extends ListenerAdapter {
 
         if (ephemeral) {
 
-            event.replyEmbeds(embed.build()).setActionRow(menu.getMenu()).setEphemeral(true).queue();
+            event.getHook().sendMessageEmbeds(embed.build()).setActionRow(menu.getMenu()).setEphemeral(true).queue();
             return;
 
         }
@@ -94,7 +96,7 @@ public class QueuePingPanelCommandListener extends ListenerAdapter {
                 .setActionRow(menu.getMenu())
                 .queue();
 
-        event.reply(queue.get("sent").getAsString()).setEphemeral(true).queue();
+        event.getHook().sendMessage(queue.get("sent").getAsString()).setEphemeral(true).queue();
 
     }
 

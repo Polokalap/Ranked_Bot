@@ -105,6 +105,10 @@
             "text": "Queue leállítása",
             "style": "DANGER"
           },
+          "next-player": {
+            "text": "Következő ember",
+            "style": "PRIMARY"
+          },
           "selector": {
             "text": "Válaszd ki a játékmódot!"
           }
@@ -134,6 +138,64 @@
           }
         }
       }
+    },
+    "ticket": {
+      "prefix": "",
+      "embed": {
+        "title": "Teszt ticket",
+        "description": [
+          "**Teszter**: %tester%",
+          "**Játékos**: %player%",
+          "**Játékmód**: %gamemode%",
+          "",
+          "Amennyiben nem jelensz meg a teszten **3 percen belül**, nem kapsz tier-t és várnod kell a következő tesztre!"
+        ],
+        "color": [255, 127, 0],
+        "footer": "Ranked.hu",
+        "actions": {
+          "give-tier": {
+            "text": "Tier adása",
+            "style": "PRIMARY"
+          },
+          "close": {
+            "text": "Bezárás",
+            "style": "DANGER"
+          }
+        }
+      }
+    },
+    "dm": {
+      "embed": {
+        "title": "Éppen téged tesztelnek!",
+        "description": [
+          "**Teszter**: %tester%",
+          "**Játékmód**: %gamemode%",
+          "",
+          "Amennyiben nem jelensz meg a teszten **3 percen belül**, nem kapsz tier-t és várnod kell a következő tesztre!"
+        ],
+        "color": [255, 127, 0],
+        "footer": "Ranked.hu",
+        "actions": {
+          "give-tier": {
+            "text": "Tier adása",
+            "style": "PRIMARY"
+          },
+          "close": {
+            "text": "Bezárás",
+            "style": "DANGER"
+          }
+        }
+      }
+    },
+    "give-tier-menu": {
+      "title": "Tier adása",
+      "text": "Tier:",
+      "placeholder": "LT5-LT3",
+      "invalid-tier": "Hibás tier!",
+      "permission": "Ezt nem teheted!",
+      "closed": "Ticket sikeresen bezárva!",
+      "player-not-found": "A játékos nincs bent a szerveren!",
+      "tier-given": "A tier sikeresen meg lett adva!"
     }
   },
   "commands": {
@@ -272,7 +334,10 @@
       "queue-full": "A queue tele van!",
       "in-queue": "Már queue-ban vagy!",
       "left-queue": "Kiléptél a %gamemode% queue-ból!",
-      "not-in-queue": "Nem vagy queue-ban!"
+      "not-in-queue": "Nem vagy queue-ban!",
+      "has-ticket": "Éppen téged tesztelnek!",
+      "queue-empty": "Nincsen játékos a queue-ban!",
+      "next-player": "Következő játékos: %player%"
     }
   }
 }

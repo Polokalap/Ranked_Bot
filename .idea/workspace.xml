@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added queue ping selector">
-      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueJoinLeaveButtonListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueStartSelectorButtonListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/QueueUtil.java" afterDir="false" />
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Queue UI done">
+      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueTestButtonListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueJoinLeaveButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueJoinLeaveButtonListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueStartSelectorButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueStartSelectorButtonListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Ping/QueuePingPanelCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Ping/QueuePingPanelCommandListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Ping/QueuePingSelectorButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Ping/QueuePingSelectorButtonListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/Panel/TicketPanelCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/Panel/TicketPanelCommandListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/TicketButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/TicketButtonListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/QueueUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/QueueUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TicketUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TicketUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hu_HU.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hu_HU.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -259,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780869407216</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Queue UI done">
+      <option name="closed" value="true" />
+      <created>1781020725511</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1781020725511</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,6 +302,7 @@
     <MESSAGE value="Added the ability to request a user's profile by Minecraft username." />
     <MESSAGE value="Added reaction emojis." />
     <MESSAGE value="Added queue ping selector" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added queue ping selector" />
+    <MESSAGE value="Queue UI done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Queue UI done" />
   </component>
 </project>

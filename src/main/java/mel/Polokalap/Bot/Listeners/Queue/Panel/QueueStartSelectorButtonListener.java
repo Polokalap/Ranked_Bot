@@ -30,6 +30,8 @@ public class QueueStartSelectorButtonListener extends ListenerAdapter {
         String componentId = event.getComponentId();
         if (!componentId.equals("start-queue-selector")) return;
 
+        event.deferReply(true).queue();
+
         String selected = event.getValues().get(0);
         int actualId = Integer.parseInt(selected.replace("queue-selector-", ""));
         int storedId = gamemodes.get(actualId).getAsJsonObject().get("stored").getAsInt();
@@ -71,7 +73,7 @@ public class QueueStartSelectorButtonListener extends ListenerAdapter {
 
         if (!isTester) {
 
-            event.reply(
+            event.getHook().sendMessage(
                     queue.get("not-tester").getAsString()
                             .replace("%gamemode%", emoji + " " + gamemodeName)
             ).setEphemeral(true).queue();
@@ -79,16 +81,16 @@ public class QueueStartSelectorButtonListener extends ListenerAdapter {
 
         }
 
-        if (queues.containsKey(member)) {
+        if (queues.containsValue(member)) {
 
-            event.reply(queue.get("has-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
+            event.getHook().sendMessage(queue.get("has-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
             return;
 
         }
 
         selectedGamemode.put(member, actualId);
 
-        event.reply(
+        event.getHook().sendMessage(
                 queue.get("gamemode-selected").getAsString()
                     .replace("%gamemode%", emoji + " " + gamemodeName)
         ).setEphemeral(true).queue();
@@ -101,12 +103,15 @@ public class QueueStartSelectorButtonListener extends ListenerAdapter {
         String id = event.getComponentId();
         JsonObject queue = lang.get("commands").getAsJsonObject().get("queue-panel").getAsJsonObject();
         Member member = event.getMember();
+        Guild guild = event.getGuild();
 
-        if (!id.equals("queue-start-button") && !id.equals("queue-stop-button")) return;
+        if (!id.equals("queue-start-button") && !id.equals("queue-stop-button") && !id.equals("queue-next-player")) return;
+
+        event.deferReply(true).queue();
 
         if (!selectedGamemode.containsKey(member)) {
 
-            event.reply(queue.get("no-gamemode").getAsString()).setEphemeral(true).queue();
+            event.getHook().sendMessage(queue.get("no-gamemode").getAsString()).setEphemeral(true).queue();
             return;
 
         }
@@ -150,14 +155,14 @@ public class QueueStartSelectorButtonListener extends ListenerAdapter {
 
             if (hasQueue.getOrDefault(member, false)) {
 
-                event.reply(queue.get("has-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
+                event.getHook().sendMessage(queue.get("has-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
                 return;
 
             }
 
             if (isQueueActive.getOrDefault(actualId, false)) {
 
-                event.reply(queue.get("queue-already-running").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
+                event.getHook().sendMessage(queue.get("queue-already-running").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
                 return;
 
             }
@@ -165,16 +170,14 @@ public class QueueStartSelectorButtonListener extends ListenerAdapter {
             queues.put(actualId, new ArrayList<>());
             hasQueue.put(member, true);
             getTester.put(actualId, member);
-            event.reply(queue.get("started-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
+            event.getHook().sendMessage(queue.get("started-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
             QueueUtil.announceQueue(event.getGuild(), member, actualId);
 
-        }
+        } else if (id.equals("queue-stop-button")) {
 
-        if (id.equals("queue-stop-button")) {
+            if (!hasQueue.getOrDefault(member, false)) {
 
-            if (!hasQueue.getOrDefault(member, true)) {
-
-                event.reply(queue.get("no-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
+                event.getHook().sendMessage(queue.get("no-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
                 return;
 
             }
@@ -184,7 +187,27 @@ public class QueueStartSelectorButtonListener extends ListenerAdapter {
             queueMessage.get(actualId).delete().queue();
             isQueueActive.put(actualId, false);
             getTester.remove(actualId);
-            event.reply(queue.get("stopped-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
+            event.getHook().sendMessage(queue.get("stopped-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
+
+        } else if (id.equals("queue-next-player")) {
+
+            if (!hasQueue.getOrDefault(member, false)) {
+
+                event.getHook().sendMessage(queue.get("no-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
+                return;
+
+            }
+
+            if (queues.get(actualId).isEmpty()) {
+
+                event.getHook().sendMessage(queue.get("queue-empty").getAsString()).setEphemeral(true).queue();
+                return;
+
+            }
+
+            event.getHook().sendMessage(queue.get("next-player").getAsString().replace("%player%", queues.get(actualId).getFirst().getAsMention())).setEphemeral(true).queue();
+
+            QueueUtil.newCycle(guild, actualId);
 
         }
 
