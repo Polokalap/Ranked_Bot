@@ -400,6 +400,19 @@
             }
           }
         }
+      },
+      "dm": {
+        "title": "Magas ticket lett nyitva!",
+        "description": [
+          "**Játékos**: %player%",
+          "**Játékmód**: %gamemode%",
+          "**Tiered**: %tier%",
+          "**Csatorna**: %channel%",
+          "",
+          "Köszönjük a szolgálatod!"
+        ],
+        "color": [255, 127, 0],
+        "footer": "Ranked.hu"
       }
     }
   }
