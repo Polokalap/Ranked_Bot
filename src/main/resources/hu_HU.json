@@ -344,6 +344,63 @@
       "next-player": "Következő játékos: %player%",
       "testing-someone": "Éppen tesztelsz valakit!",
       "high-tier": "Magas szinten vagy ebből a játékmódból! Nyiss magas ticketet."
+    },
+    "high-ticket-panel": {
+      "name": "high-ticket-panel",
+      "description": "Magas teszt ticket panel",
+      "empty": "Nincsen játékmód kiválasztva!",
+      "low-tier": "Nem vagy LT3+ felett %gamemode% játékmódból!",
+      "done": "A panel ki lett írva!",
+      "gamemode-selected": "Sikeresen kiválasztottad a %gamemode% játékmódot!",
+      "not-registered": "Nem vagy regisztrálva! \nEzt meg tudod tenni az alábbi oldalon!",
+      "ticket-opened": "Ki lett nyitva a %gamemode% ticketed!",
+      "has-ticket": "Már van ticketed %gamemode% játékmódból!",
+      "register-button": {
+        "text": "Oldal",
+        "link": "https://ranked.hu/?login=true"
+      },
+      "embed": {
+        "title": "Magas teszt nyitása",
+        "description": [
+          "Válaszd ki, hogy miből szeretnél ticketet nyitni!"
+        ],
+        "color": [255, 127, 0],
+        "footer": "Ranked.hu",
+        "actions": {
+          "selector": {
+            "text": "Válassz egy játékmódot!"
+          },
+          "open-ticket": {
+            "text": "Magas teszt nyitása",
+            "style": "DANGER"
+          }
+        }
+      },
+      "ticket": {
+        "prefix": "⬆\uFE0F ",
+        "embed": {
+          "title": "Teszt ticket",
+          "description": [
+            "**Játékos**: %player%",
+            "**Játékmód**: %gamemode%",
+            "**Tiered**: %tier%",
+            "",
+            "Várd meg, amíg egy adminisztrátor kezeli a ticketet!"
+          ],
+          "color": [255, 127, 0],
+          "footer": "Ranked.hu",
+          "actions": {
+            "give-tier": {
+              "text": "Tier adása",
+              "style": "PRIMARY"
+            },
+            "close": {
+              "text": "Bezárás",
+              "style": "DANGER"
+            }
+          }
+        }
+      }
     }
   }
 }
