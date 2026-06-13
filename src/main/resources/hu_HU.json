@@ -431,7 +431,8 @@
       "name": "spin",
       "description": "Pörgess ki egy random játékost!",
       "invalid-tier": "Nincs ilyen tier!",
-      "invalid-gamemode": "Nincsen ilyen játékmód!",
+      "invalid-gamemode": "Nincs ilyen játékmód!",
+      "no-players": "Nincs játékos ebben a tierben!",
       "options": [
         {
           "type": "STRING",

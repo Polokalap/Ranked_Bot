@@ -98,6 +98,15 @@ public class SpinCommand extends ListenerAdapter {
 
         }
 
+        if (players.isEmpty()){
+
+            event.getHook().sendMessage(
+                    command.get("no-players").getAsString()
+            ).queue();
+            return;
+
+        }
+
         EmbedBuilder embed = new EmbedBuilder();
         JsonObject embedJson = command.get("embed").getAsJsonObject();
         StringBuilder descriptionBuilder = new StringBuilder();
@@ -156,7 +165,7 @@ public class SpinCommand extends ListenerAdapter {
                         .replace("%tier%", tierLeft + tierRight)
                         .replace("%gamemode%", gamemodeEmoji)
                         .replace("%count%", String.valueOf(players.size()))
-                        .replace("%player%", players.get(random.nextInt(players.size() - 1)))
+                        .replace("%player%", players.get(random.nextInt(players.size())))
                         .replace("%players%", playersText);
 
         JsonArray colors = embedJson.get("color").getAsJsonArray();
