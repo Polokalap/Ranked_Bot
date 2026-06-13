@@ -355,6 +355,10 @@
       "not-registered": "Nem vagy regisztrálva! \nEzt meg tudod tenni az alábbi oldalon!",
       "ticket-opened": "Ki lett nyitva a %gamemode% ticketed!",
       "has-ticket": "Már van ticketed %gamemode% játékmódból!",
+      "no-gamemode": "Nincs kiválasztva játékmód!",
+      "permission": "Ezt nem teheted meg!",
+      "closed": "A ticket be lett zárva!",
+      "cooldown": "Cooldownon vagy! Legközelebb ekkor teszttelhetsz: %time%",
       "register-button": {
         "text": "Oldal",
         "link": "https://ranked.hu/?login=true"
@@ -406,10 +410,53 @@
         "description": [
           "**Játékos**: %player%",
           "**Játékmód**: %gamemode%",
-          "**Tiered**: %tier%",
+          "**Tier**: %tier%",
           "**Csatorna**: %channel%",
           "",
           "Köszönjük a szolgálatod!"
+        ],
+        "color": [255, 127, 0],
+        "footer": "Ranked.hu"
+      },
+      "modal": {
+        "title": "Tier Beállítása",
+        "text": "Tier:",
+        "permission": "Nincs ehhez jogod!",
+        "placeholder": "Tier beállítása",
+        "tier-given": "A tier meg lett adva!",
+        "player-not-found": "A játékos nincs bent a szerveren!"
+      }
+    },
+    "spin": {
+      "name": "spin",
+      "description": "Pörgess ki egy random játékost!",
+      "invalid-tier": "Nincs ilyen tier!",
+      "invalid-gamemode": "Nincsen ilyen játékmód!",
+      "options": [
+        {
+          "type": "STRING",
+          "name": "gamemode",
+          "description": "Játékmód neve",
+          "required": true
+        },
+        {
+          "type": "STRING",
+          "name": "tier",
+          "description": "Tier beállítása",
+          "required": true
+        }
+      ],
+      "embed": {
+        "title": "Pörgetés",
+        "description": [
+          "**Tier**: %tier%",
+          "**Játékmód**: %gamemode%",
+          "**Játékosok száma**: %count%",
+          "",
+          "**Sorsolva**: %player%",
+          "",
+          "**Játékosok**:",
+          "%players%"
         ],
         "color": [255, 127, 0],
         "footer": "Ranked.hu"

@@ -4,6 +4,7 @@ import com.google.gson.*;
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
@@ -34,6 +35,7 @@ public class Main {
     public static JsonObject data;
     public static JDA jda;
     public static JsonArray gamemodes;
+    public static ArrayList<String> gamemodeNames = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
 
@@ -57,7 +59,9 @@ public class Main {
             builder.addEventListeners(clazz.getDeclaredConstructor().newInstance());
         }
 
-        jda = builder.build();
+        jda = builder
+                .setActivity(Activity.playing(data.get("status").getAsString()))
+                .build();
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 
@@ -124,6 +128,12 @@ public class Main {
         }
 
         gamemodes = JsonParser.parseString(response.body()).getAsJsonArray();
+
+        for (JsonElement gamemode : JsonParser.parseString(response.body()).getAsJsonArray()) {
+
+            gamemodeNames.add(gamemode.getAsJsonObject().get("name").getAsString().toLowerCase());
+
+        }
 
     }
 

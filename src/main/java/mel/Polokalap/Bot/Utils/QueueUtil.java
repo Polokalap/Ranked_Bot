@@ -420,6 +420,15 @@ public class QueueUtil {
 
     }
 
+    public static void setTier(String playerId, int gamemode, Tiers tier) {
+
+        Database.execute(
+                "UPDATE players SET elos = jsonb_set(elos, ARRAY[?::text], to_jsonb(?::text)) WHERE discord_id = ?",
+                gamemode + 1, tierToElo(tier, MAX), playerId
+        );
+
+    }
+
     public static void addCooldown(Member player, int gamemode) {
 
         Database.execute(
@@ -427,6 +436,17 @@ public class QueueUtil {
                 gamemode,
                 System.currentTimeMillis() + lang.get("commands").getAsJsonObject().get("queue-panel").getAsJsonObject().get("cooldown").getAsLong(),
                 player.getId()
+        );
+
+    }
+
+    public static void addCooldown(String playerId, int gamemode) {
+
+        Database.execute(
+                "UPDATE players SET last_tested = jsonb_set(COALESCE(last_tested, '{}'::jsonb), ARRAY[?]::text[], to_jsonb(?::bigint), true) WHERE discord_id = ?;",
+                gamemode,
+                System.currentTimeMillis() + lang.get("commands").getAsJsonObject().get("queue-panel").getAsJsonObject().get("cooldown").getAsLong(),
+                playerId
         );
 
     }

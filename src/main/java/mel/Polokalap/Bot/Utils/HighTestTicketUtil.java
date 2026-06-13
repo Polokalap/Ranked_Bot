@@ -21,7 +21,6 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Collections;
 import java.util.EnumSet;
 import java.util.HashMap;
 
@@ -114,13 +113,13 @@ public class HighTestTicketUtil {
 
         CustomButton rateTestButton = new CustomButton(
                 embedJson.get("actions").getAsJsonObject().get("give-tier").getAsJsonObject().get("text").getAsString(),
-                "high-test-give-tier-" + gamemode,
+                "high-test-give-tier-" + player.getId() + "-" + gamemode,
                 ButtonStyle.valueOf(embedJson.get("actions").getAsJsonObject().get("give-tier").getAsJsonObject().get("style").getAsString())
         );
 
         CustomButton closeButton = new CustomButton(
                 embedJson.get("actions").getAsJsonObject().get("close").getAsJsonObject().get("text").getAsString(),
-                "high-test-close-ticket-" + gamemode,
+                "high-test-close-ticket-" + player.getId() + "-" + gamemode,
                 ButtonStyle.valueOf(embedJson.get("actions").getAsJsonObject().get("close").getAsJsonObject().get("style").getAsString())
         );
 
@@ -169,7 +168,6 @@ public class HighTestTicketUtil {
         JsonObject embedJson = queue.get("dm").getAsJsonObject();
         EmbedBuilder embed = new EmbedBuilder();
         StringBuilder descriptionBuilder = new StringBuilder();
-        long categoryId = gamemodes.get(gamemode).getAsJsonObject().get("category").getAsLong();
 
         for (JsonElement element : embedJson.get("description").getAsJsonArray()) {
 

@@ -133,12 +133,6 @@ public class QueueJoinLeaveButtonListener extends ListenerAdapter {
             event.getHook().sendMessage(queue.get("joined-queue").getAsString().replace("%gamemode%", emoji + " " + gamemodeName)).setEphemeral(true).queue();
             QueueUtil.addToQueue(member, actualId);
 
-//            if (queues.get(actualId).size() == 1 && !testing.containsKey(getTester.get(actualId))) {
-//
-//                QueueUtil.newCycle(guild, actualId);
-//
-//            }
-
         }
 
         if (id.startsWith("leave-queue-")) {
