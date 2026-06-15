@@ -194,27 +194,6 @@ public class AdminProfilSelectorButtonListener extends ListenerAdapter {
 
         }
 
-        if (id.startsWith("admin-command-revoke-tester-")) {
-
-            event.deferReply(true).queue();
-
-            long userId = Long.parseLong(id.replace("admin-command-revoke-tester-", ""));
-
-            Database.execute(
-                    "UPDATE players SET tester = jsonb_set(COALESCE(tester, '{}'::jsonb), ARRAY[?]::text[], to_jsonb(?::boolean), true) WHERE discord_id = ?;",
-                    String.valueOf(actualId),
-                    false,
-                    String.valueOf(userId)
-            );
-
-            event.getHook().sendMessage(
-                    profile.get("revoked-tester").getAsString()
-                            .replace("%gamemode%", emoji + " " + gamemodeName)
-                            .replace("%player%", "<@" + userId + ">")
-            ).setEphemeral(true).queue();
-
-        }
-
         if (id.startsWith("admin-command-set-tier-")) {
 
             long userId = Long.parseLong(id.replace("admin-command-set-tier-", ""));

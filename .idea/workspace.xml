@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added /admin-profile">
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added checks to banned players">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueJoinLeaveButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueJoinLeaveButtonListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/High/HighTicketSelectorButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/High/HighTicketSelectorButtonListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hu_HU.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hu_HU.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfilSelectorButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfilSelectorButtonListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueStartSelectorButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueStartSelectorButtonListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Ping/QueuePingSelectorButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Ping/QueuePingSelectorButtonListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -339,7 +339,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781537046219</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added checks to banned players">
+      <option name="closed" value="true" />
+      <created>1781537469981</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1781537469981</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,7 +357,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added self harm flags and a mod alert system." />
     <MESSAGE value="Added a new fiter filtering system that I like to call chunking. Made the chat filter also look at a message it gets updated. Another thing I also added is Buttons under the moderator alert that admins can use to punish the user." />
     <MESSAGE value="Added timeout after a certain amount of flags under 10 seconds." />
     <MESSAGE value="Ticket system" />
@@ -374,6 +381,7 @@
     <MESSAGE value="Added /spin" />
     <MESSAGE value="Fixed a math error /spin" />
     <MESSAGE value="Added /admin-profile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added /admin-profile" />
+    <MESSAGE value="Added checks to banned players" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added checks to banned players" />
   </component>
 </project>

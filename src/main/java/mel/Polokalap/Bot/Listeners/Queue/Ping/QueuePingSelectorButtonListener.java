@@ -42,7 +42,6 @@ public class QueuePingSelectorButtonListener extends ListenerAdapter {
         Role role = guild.getRoleById(roleId);
 
         StringSelectMenu menuCopy = event.getSelectMenu().createCopy().build();
-        event.deferEdit().queue();
 
         if (member.getRoles().toString().contains(String.valueOf(roleId))) {
 
@@ -59,7 +58,7 @@ public class QueuePingSelectorButtonListener extends ListenerAdapter {
 
         guild.addRoleToMember(member, role).queue();
 
-        event.getHook().editOriginalComponents(ActionRow.of(menuCopy)).queue();
+        // event.getMessage().editMessageComponents(ActionRow.of(menuCopy)).queue();
         event.getHook().sendMessage(
                 queue.get("role-given").getAsString()
                         .replace("%gamemode%", emoji + " " + gamemodeName)

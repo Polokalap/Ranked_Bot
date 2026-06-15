@@ -85,8 +85,8 @@ public class QueueStartSelectorButtonListener extends ListenerAdapter {
         boolean isTester = false;
 
         if (
-                json.get("tester").getAsJsonObject().get(String.valueOf(storedId)) != null &&
-                json.get("tester").getAsJsonObject().get(String.valueOf(storedId)).getAsBoolean()
+                json.get("tester").getAsJsonObject().get(String.valueOf(actualId)) != null &&
+                json.get("tester").getAsJsonObject().get(String.valueOf(actualId)).getAsBoolean()
         ) isTester = true;
 
         if (!isTester) {
