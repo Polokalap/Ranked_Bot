@@ -452,15 +452,101 @@
         "description": [
           "**Tier**: %tier%",
           "**Játékmód**: %gamemode%",
-          "**Játékosok száma**: %count%",
           "",
           "**Sorsolva**: %player%",
           "",
-          "**Játékosok**:",
+          "**Játékosok**: (%count%)",
           "%players%"
         ],
         "color": [255, 127, 0],
         "footer": "Ranked.hu"
+      }
+    },
+    "admin-profile": {
+      "name": "admin-profile",
+      "description": "Admin profil parancs",
+      "permission": "Nincsen jogod ehhez!",
+      "missing": "Állíts be egy játékost!",
+      "gamemode-selected": "Kiválasztottad a %gamemode% játékmódot!",
+      "no-gamemode": "Nincs játékmód kiválasztva!",
+      "removed-cooldown": "A cooldown le lett véve a %gamemode% játékmódról %player% játékosról!",
+      "unbanned": "%player% unbannolva lett!",
+      "banned": "%player% bannolva lett!",
+      "made-tester": "%player% teszter lett %gamemode% játékmódból!",
+      "revoked-tester": "%player% tesztere el lett véve %gamemode% játékmódból!",
+      "set-tier": "Tier be lett állítva %player% játékosnak %gamemode% játékmódból!",
+      "removed-tier": "El lett véve %player% tierje %gamemode% játékmódból!",
+      "set-retired": "%player% retired lett %gamemode% játékmódból!",
+      "set-unretired": "%player% unretired lett %gamemode% játékmódból!",
+      "modal": {
+        "title": "Tier beállítása",
+        "placeholder": "LT5-HT1",
+        "text": "Tier:"
+      },
+      "options": [
+        {
+          "type": "USER",
+          "name": "player",
+          "description": "A játékos Discordja",
+          "required": false
+        },
+        {
+          "type": "STRING",
+          "name": "minecraft_name",
+          "description": "A játékos neve",
+          "required": false
+        }
+      ],
+      "embed": {
+        "title": "**%player%** profilja",
+        "description": [
+          "Discord: **%discord%**",
+          "Helyezés: **#%position%**",
+          "Pontok: **%score%**"
+        ],
+        "color": [255, 127, 0],
+        "footer": "Ranked.hu",
+        "actions": {
+          "selector": {
+            "text": "Válassz ki egy játékmódot!"
+          },
+          "remove-cooldown": {
+            "text": "Cooldown levétele",
+            "style": "DANGER"
+          },
+          "ban-user": {
+            "text": "Játékos bannolása",
+            "style": "DANGER"
+          },
+          "unban-user": {
+            "text": "Játékos bannjának feloldása",
+            "style": "PRIMARY"
+          },
+          "make-tester": {
+            "text": "Legyen teszter",
+            "style": "PRIMARY"
+          },
+          "revoke-tester": {
+            "text": "Ne legyen teszter",
+            "style": "DANGER"
+          },
+          "set-tier": {
+            "text": "Tier beállítása",
+            "style": "PRIMARY"
+          },
+          "remove-tier": {
+            "text": "Tier elvétele",
+            "style": "DANGER"
+          },
+          "set-retired": {
+            "text": "Legyen retired",
+            "style": "PRIMARY"
+          },
+          "set-unretired": {
+            "text": "Ne legyen retired",
+            "style": "DANGER"
+          }
+        }
       }
     }
   }

@@ -102,6 +102,7 @@ public class TicketUtil {
                 ticket.get("embed").getAsJsonObject().get("footer").getAsString()
                         .replace("%id%", member.getId())
         );
+        embed.setThumbnail(member.getEffectiveAvatarUrl());
 
         guild.createTextChannel(ticket.get("prefix").getAsString() + member.getEffectiveName())
                 .setParent(category)
@@ -219,6 +220,7 @@ public class TicketUtil {
                 ticket.get("embed").getAsJsonObject().get("footer").getAsString()
                         .replace("%id%", member.getId())
         );
+        embed.setThumbnail(member.getEffectiveAvatarUrl());
 
         guild.createTextChannel(ticket.get("prefix").getAsString() + member.getEffectiveName())
                 .setParent(category)

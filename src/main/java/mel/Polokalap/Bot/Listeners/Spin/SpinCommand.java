@@ -130,9 +130,6 @@ public class SpinCommand extends ListenerAdapter {
 
         if (gamemodeId == -1) return;
 
-        System.out.println("data keys: " + data.keySet());
-        System.out.println("data content: " + data);
-
         String gamemodeEmoji = Emoji.fromCustom(
                 data.get("gamemodes").getAsJsonArray().get(gamemodeId).getAsJsonObject().get("name").getAsString(),
                 data.get("gamemodes").getAsJsonArray().get(gamemodeId).getAsJsonObject().get("id").getAsLong(),
@@ -158,7 +155,7 @@ public class SpinCommand extends ListenerAdapter {
         String playersText = "";
         Random random = new Random();
 
-        for (String player : players) playersText = playersText + player + "\n";
+        for (String player : players) if (playersText.length() < 1500) playersText = playersText + player + "\n";
 
         String description = descriptionBuilder
                 .toString()

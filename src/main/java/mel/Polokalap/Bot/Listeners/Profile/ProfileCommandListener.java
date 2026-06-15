@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.command.UserContextInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 
@@ -103,12 +104,18 @@ public class ProfileCommandListener extends ListenerAdapter {
 
         for (JsonElement emoji : data.get("gamemodes").getAsJsonArray()) {
 
+            int storedId = gamemodes.get(gamemodeId).getAsJsonObject().get("stored").getAsInt();
             JsonObject obj = emoji.getAsJsonObject();
             String tier = json.get("tiers").getAsJsonObject().get(String.valueOf(gamemodeId + 1)).getAsString();
 
+            boolean retired;
+
+            if (json.get("retired").getAsJsonObject().get(String.valueOf(storedId)) != null) retired = json.get("retired").getAsJsonObject().get(String.valueOf(storedId)).getAsBoolean();
+            else retired = false;
+
             if (tier.isEmpty()) tier = "unranked";
 
-            JsonArray tierArray = tiers.get(tier.toLowerCase()).getAsJsonArray();
+            JsonArray tierArray = tiers.get((retired ? "r" : "") + tier.toLowerCase()).getAsJsonArray();
 
             String fieldValue = Emoji.fromCustom(
                     tierArray.get(0).getAsJsonObject().get("name").getAsString(),
