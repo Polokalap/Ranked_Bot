@@ -6,6 +6,9 @@ Ranked.hu's bot is a Discord bot that allows the user to:
 - Open high test tickets
 - Get moderated (lmao)
 
+## Youtube videos showcasing the bot (since you prolly won't figure out how the api and db works)
+- [Queue](https://youtu.be/GlGTb9aeEL4)
+
 ## How to use the moderation system
 To set up a filter, you need to navigate to `resources/filter.json` then create a field inside of the `flags` array. You must set the following fields in the flag:
 - "name": "The name of the flag"
