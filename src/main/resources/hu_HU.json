@@ -328,6 +328,7 @@
       "started-queue": "Elindítottad a %gamemode% queue-t!",
       "queue-already-running": "Már van %gamemode% queue!",
       "not-registered": "Nem vagy regisztrálva! \nEzt meg tudod tenni az alábbi oldalon!",
+      "banned": "Bannolva vagy!",
       "register-button": {
         "text": "Oldal",
         "link": "https://ranked.hu/?login=true"
@@ -359,6 +360,7 @@
       "permission": "Ezt nem teheted meg!",
       "closed": "A ticket be lett zárva!",
       "cooldown": "Cooldownon vagy! Legközelebb ekkor teszttelhetsz: %time%",
+      "banned": "Ki vagy bannolva!",
       "register-button": {
         "text": "Oldal",
         "link": "https://ranked.hu/?login=true"

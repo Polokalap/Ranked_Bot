@@ -83,6 +83,13 @@ public class QueueJoinLeaveButtonListener extends ListenerAdapter {
 
             }
 
+            if (json.get("banned").getAsBoolean()) {
+
+                event.getHook().sendMessage(queue.get("banned").getAsString()).setEphemeral(true).queue();
+                return;
+
+            }
+
             List<String> highTier = List.of("LT3", "HT3", "LT2", "HT2", "LT1", "HT1");
 
             if (highTier.contains(json.get("tiers").getAsJsonObject().get(String.valueOf(actualId + 1)).getAsString())) {
