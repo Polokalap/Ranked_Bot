@@ -16,6 +16,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 import static mel.Polokalap.Bot.Main.*;
@@ -36,6 +37,21 @@ public class QueueJoinLeaveButtonListener extends ListenerAdapter {
             event.deferReply(true).queue();
 
             int actualId = Integer.parseInt(id.replace("join-queue-", ""));
+
+            boolean containsPlayer = false;
+
+            for (ArrayList<Member> gamemodeQueue : queues.values()) {
+
+                if (gamemodeQueue.contains(member)) containsPlayer = true;
+
+            }
+
+            if (containsPlayer) {
+
+                event.getHook().sendMessage(queue.get("in-queue").getAsString()).setEphemeral(true).queue();
+                return;
+
+            }
 
             if (getTester.get(actualId).equals(member)) {
 

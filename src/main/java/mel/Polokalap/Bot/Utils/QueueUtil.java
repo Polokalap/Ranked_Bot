@@ -28,7 +28,7 @@ import static mel.Polokalap.Bot.Main.data;
 public class QueueUtil {
 
     public static HashMap<Member, Integer> selectedGamemode = new HashMap<>();
-    public static HashMap<Integer, List<Member>> queues = new HashMap<>();
+    public static HashMap<Integer, ArrayList<Member>> queues = new HashMap<>();
     public static HashMap<Member, Boolean> hasQueue = new HashMap<>();
 
     public static HashMap<Integer, Boolean> isQueueActive = new HashMap<>();
@@ -59,7 +59,7 @@ public class QueueUtil {
         String description = descriptionBuilder.toString()
                 .replace("%tester%", "<@" + tester.getId() + ">")
                 .replace("%queue%", "")
-                .replace("%size%", String.valueOf(queues.getOrDefault(tester, List.of()).size()));
+                .replace("%size%", String.valueOf(queues.getOrDefault(tester, new ArrayList<>()).size()));
 
         JsonArray colors = queue.getAsJsonObject().get("color").getAsJsonArray();
         Color color = new Color(
@@ -340,7 +340,7 @@ public class QueueUtil {
         String description = descriptionBuilder.toString()
                 .replace("%tester%", tester.getAsMention())
                 .replace("%queue%", queuePlayers.toString())
-                .replace("%size%", String.valueOf(queues.getOrDefault(gamemode, List.of()).size()));
+                .replace("%size%", String.valueOf(queues.getOrDefault(gamemode, new ArrayList<>()).size()));
 
         JsonArray colors = queue.getAsJsonObject().get("color").getAsJsonArray();
         Color color = new Color(
