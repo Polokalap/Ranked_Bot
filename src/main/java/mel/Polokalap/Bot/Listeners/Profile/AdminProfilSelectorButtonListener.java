@@ -93,7 +93,8 @@ public class AdminProfilSelectorButtonListener extends ListenerAdapter {
                 !id.startsWith("admin-command-set-tier-") &&
                 !id.startsWith("admin-command-remove-tier-") &&
                 !id.startsWith("admin-command-set-retired-") &&
-                !id.startsWith("admin-command-remove-retired-")
+                !id.startsWith("admin-command-remove-retired-") &&
+                !id.startsWith("admin-command-set-defense-")
         ) return;
 
         if (id.startsWith("admin-command-unban-")) {
@@ -216,6 +217,7 @@ public class AdminProfilSelectorButtonListener extends ListenerAdapter {
             event.replyModal(modal).queue();
 
         }
+
         if (id.startsWith("admin-command-revoke-tester-")) {
 
             event.deferReply(true).queue();
@@ -299,6 +301,29 @@ public class AdminProfilSelectorButtonListener extends ListenerAdapter {
 
         }
 
+        if (id.startsWith("admin-command-set-defense-")) {
+
+            long userId = Long.parseLong(id.replace("admin-command-set-defense-", ""));
+            JsonObject modalJson = profile.get("defense").getAsJsonObject().get("modal").getAsJsonObject();
+
+            TextInput tierInput = TextInput.create("defense", TextInputStyle.SHORT)
+                    .setMaxLength(3)
+                    .setPlaceholder(modalJson.get("placeholder").getAsString())
+                    .build();
+
+            Modal modal = Modal.create(
+                            "admin-command-set-defense-modal-" + userId,
+                            modalJson.get("title").getAsString()
+                    )
+                    .addComponents(
+                            Label.of(modalJson.get("text").getAsString(), tierInput)
+                    )
+                    .build();
+
+            event.replyModal(modal).queue();
+
+        }
+
     }
 
     @Override
@@ -311,48 +336,97 @@ public class AdminProfilSelectorButtonListener extends ListenerAdapter {
         Member member = event.getMember();
         Message message = event.getMessage();
 
-        if (!id.startsWith("admin-command-set-tier-modal-")) return;
+        if (!id.startsWith("admin-command-set-tier-modal-") && !id.startsWith("admin-command-set-defense-modal-")) return;
 
-        int actualId = adminGamemode.getOrDefault(message, -1);
-        long userId = Long.parseLong(id.replace("admin-command-set-tier-modal-", ""));
-        String tier = event.getValue("tier").getAsString().toUpperCase();
+        if (id.startsWith("admin-command-set-tier-modal-")) {
 
-        String gamemodeName = gamemodes.get(actualId).getAsJsonObject().get("html").getAsString();
-        String emoji = Emoji.fromCustom(
-                data.get("gamemodes").getAsJsonArray().get(actualId).getAsJsonObject().get("name").getAsString(),
-                data.get("gamemodes").getAsJsonArray().get(actualId).getAsJsonObject().get("id").getAsLong(),
-                false
-        ).getAsMention();
+            int actualId = adminGamemode.getOrDefault(message, -1);
+            long userId = Long.parseLong(id.replace("admin-command-set-tier-modal-", ""));
+            String tier = event.getValue("tier").getAsString().toUpperCase();
 
-        if (!List.of("LT5", "HT5", "LT4", "HT4", "LT3", "HT3", "LT2", "HT2", "LT1", "HT1").contains(tier)) {
+            String gamemodeName = gamemodes.get(actualId).getAsJsonObject().get("html").getAsString();
+            String emoji = Emoji.fromCustom(
+                    data.get("gamemodes").getAsJsonArray().get(actualId).getAsJsonObject().get("name").getAsString(),
+                    data.get("gamemodes").getAsJsonArray().get(actualId).getAsJsonObject().get("id").getAsLong(),
+                    false
+            ).getAsMention();
 
-            event.getHook().sendMessage(profile.get("invalid-tier").getAsString()).queue();
-            return;
+            if (!List.of("LT5", "HT5", "LT4", "HT4", "LT3", "HT3", "LT2", "HT2", "LT1", "HT1").contains(tier)) {
+
+                event.getHook().sendMessage(profile.get("invalid-tier").getAsString()).queue();
+                return;
+
+            }
+
+            Database.execute(
+                    "UPDATE players SET elos = jsonb_set(elos, ARRAY[?::text], to_jsonb(?::text)) WHERE discord_id = ?",
+                    actualId + 1,
+                    tierToElo(Tiers.valueOf(tier), MAX),
+                    String.valueOf(userId)
+            );
+
+            event.deferEdit().queue();
+
+            guild.retrieveMemberById(userId).queue(
+
+                    player -> {
+
+                        event.getHook().sendMessage(
+                                profile.get("set-tier").getAsString()
+                                        .replace("%gamemode%", emoji + " " + gamemodeName)
+                                        .replace("%player%", "<@" + userId + ">")
+                        ).setEphemeral(true).queue();
+
+                    }
+
+            );
 
         }
 
-        Database.execute(
-                "UPDATE players SET elos = jsonb_set(elos, ARRAY[?::text], to_jsonb(?::text)) WHERE discord_id = ?",
-                actualId + 1,
-                tierToElo(Tiers.valueOf(tier), MAX),
-                String.valueOf(userId)
-        );
+        if (id.startsWith("admin-command-set-defense-modal-")) {
 
-        event.deferEdit().queue();
+            int actualId = adminGamemode.getOrDefault(message, -1);
+            long userId = Long.parseLong(id.replace("admin-command-set-defense-modal-", ""));
+            String defense = event.getValue("defense").getAsString().toUpperCase();
 
-        guild.retrieveMemberById(userId).queue(
+            String gamemodeName = gamemodes.get(actualId).getAsJsonObject().get("html").getAsString();
+            String emoji = Emoji.fromCustom(
+                    data.get("gamemodes").getAsJsonArray().get(actualId).getAsJsonObject().get("name").getAsString(),
+                    data.get("gamemodes").getAsJsonArray().get(actualId).getAsJsonObject().get("id").getAsLong(),
+                    false
+            ).getAsMention();
 
-                player -> {
+            if (!List.of("0", "1", "2", "3").contains(defense)) {
 
-                    event.getHook().sendMessage(
-                            profile.get("set-tier").getAsString()
-                                    .replace("%gamemode%", emoji + " " + gamemodeName)
-                                    .replace("%player%", "<@" + userId + ">")
-                    ).setEphemeral(true).queue();
+                event.getHook().sendMessage(profile.get("invalid-defense").getAsString()).queue();
+                return;
 
-                }
+            }
 
-        );
+            Database.execute(
+                    "UPDATE players SET defense = jsonb_set(COALESCE(defense, '{}'::jsonb), ARRAY[?::text], to_jsonb(?::text)) WHERE discord_id = ?",
+                    String.valueOf(actualId + 1),
+                    defense,
+                    String.valueOf(userId)
+            );
+
+            event.deferEdit().queue();
+
+            guild.retrieveMemberById(userId).queue(
+
+                    player -> {
+
+                        event.getHook().sendMessage(
+                                profile.get("set-defense").getAsString()
+                                        .replace("%gamemode%", emoji + " " + gamemodeName)
+                                        .replace("%player%", "<@" + userId + ">")
+                        ).setEphemeral(true).queue();
+
+                    }
+
+            );
+
+        }
 
     }
 

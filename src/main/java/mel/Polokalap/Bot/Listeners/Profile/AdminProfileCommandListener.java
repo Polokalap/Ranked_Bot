@@ -174,6 +174,12 @@ public class AdminProfileCommandListener extends ListenerAdapter {
                 ButtonStyle.valueOf(actions.get("set-unretired").getAsJsonObject().get("style").getAsString())
         );
 
+        CustomButton setDefenseButton = new CustomButton(
+                actions.get("set-defense").getAsJsonObject().get("text").getAsString(),
+                "admin-command-set-defense-" + json.get("discord_id").getAsLong(),
+                ButtonStyle.valueOf(actions.get("set-defense").getAsJsonObject().get("style").getAsString())
+        );
+
         event.getHook().sendMessageEmbeds(
                 embed.build()
         ).addComponents(
@@ -186,13 +192,14 @@ public class AdminProfileCommandListener extends ListenerAdapter {
                 ),
                 ActionRow.of(
                         addTesterButton.getButton(),
-                        revokeTesterButton.getButton()
+                        revokeTesterButton.getButton(),
+                        setRetiredButton.getButton(),
+                        setUnRetiredButton.getButton()
                 ),
                 ActionRow.of(
                         setTierButton.getButton(),
                         removeTierButton.getButton(),
-                        setRetiredButton.getButton(),
-                        setUnRetiredButton.getButton()
+                        setDefenseButton.getButton()
                 ),
                 ActionRow.of(
                         gamemodeSelector.getMenu()
@@ -249,9 +256,13 @@ public class AdminProfileCommandListener extends ListenerAdapter {
             String tier = json.get("tiers").getAsJsonObject().get(String.valueOf(gamemodeId + 1)).getAsString();
 
             boolean retired;
+            int defense;
 
             if (json.get("retired").getAsJsonObject().get(String.valueOf(storedId)) != null) retired = json.get("retired").getAsJsonObject().get(String.valueOf(storedId)).getAsBoolean();
             else retired = false;
+
+            if (json.get("defense").getAsJsonObject().get(String.valueOf(gamemodeId)) != null) defense = json.get("defense").getAsJsonObject().get(String.valueOf(gamemodeId)).getAsInt();
+            else defense = 0;
 
             if (tier.isEmpty()) tier = "unranked";
 
@@ -265,7 +276,7 @@ public class AdminProfileCommandListener extends ListenerAdapter {
                     tierArray.get(1).getAsJsonObject().get("name").getAsString(),
                     tierArray.get(1).getAsJsonObject().get("id").getAsLong(),
                     false
-            ).getAsMention());
+            ).getAsMention() + " " + "(" + String.valueOf(defense) + ")");
 
             embed.addField(
                     Emoji.fromCustom(obj.get("name").getAsString(), obj.get("id").getAsLong(), false).getAsMention()

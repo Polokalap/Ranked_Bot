@@ -480,6 +480,9 @@
       "removed-tier": "El lett véve %player% tierje %gamemode% játékmódból!",
       "set-retired": "%player% retired lett %gamemode% játékmódból!",
       "set-unretired": "%player% unretired lett %gamemode% játékmódból!",
+      "set-defense": "A defensek be lett állítva %player% játékosnak %gamemode% játékmódból!",
+      "invalid-tier": "Ez a tier nem létezik!",
+      "invalid-defense": "Ez a szám nincs 0 és 3 között!",
       "modal": {
         "title": "Tier beállítása",
         "placeholder": "LT5-HT1",
@@ -499,6 +502,13 @@
           "required": false
         }
       ],
+      "defense": {
+        "modal": {
+          "title": "Defensek beállítása",
+          "placeholder": "0-3",
+          "text": "Defensek:"
+        }
+      },
       "embed": {
         "title": "**%player%** profilja",
         "description": [
@@ -547,6 +557,10 @@
           "set-unretired": {
             "text": "Ne legyen retired",
             "style": "DANGER"
+          },
+          "set-defense": {
+            "text": "Defensek állítása",
+            "style": "PRIMARY"
           }
         }
       }
