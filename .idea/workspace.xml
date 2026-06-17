@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="idk">
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added defenses">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfilSelectorButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfilSelectorButtonListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfileCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfileCommandListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TicketUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TicketUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hu_HU.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hu_HU.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -422,7 +421,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781554966399</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Added defenses">
+      <option name="closed" value="true" />
+      <created>1781656807866</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1781656807867</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +439,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ticket system" />
     <MESSAGE value="Changed &quot;permissions&quot; string check to &quot;permission&quot;" />
     <MESSAGE value="Added archive option to tickets" />
     <MESSAGE value="Switched from .env to data.json for channel ids" />
@@ -457,6 +463,7 @@
     <MESSAGE value="Added checks to banned players" />
     <MESSAGE value="Fixed issue with checking tester when starting queue" />
     <MESSAGE value="idk" />
-    <option name="LAST_COMMIT_MESSAGE" value="idk" />
+    <MESSAGE value="Added defenses" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added defenses" />
   </component>
 </project>

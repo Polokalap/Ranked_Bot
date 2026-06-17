@@ -139,6 +139,8 @@ public class AdminProfilSelectorButtonListener extends ListenerAdapter {
 
         if (actualId == -1) {
 
+            event.deferReply(true).queue();
+
             event.getHook().sendMessage(profile.get("no-gamemode").getAsString()).setEphemeral(true).queue();
             return;
 
@@ -405,7 +407,7 @@ public class AdminProfilSelectorButtonListener extends ListenerAdapter {
 
             Database.execute(
                     "UPDATE players SET defense = jsonb_set(COALESCE(defense, '{}'::jsonb), ARRAY[?::text], to_jsonb(?::text)) WHERE discord_id = ?",
-                    String.valueOf(actualId + 1),
+                    String.valueOf(actualId),
                     defense,
                     String.valueOf(userId)
             );

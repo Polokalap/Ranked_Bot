@@ -234,6 +234,21 @@ public class TicketUtil {
                         null,
                         EnumSet.of(Permission.VIEW_CHANNEL)
                 )
+                .addRolePermissionOverride(
+                        data.get("moderator-role").getAsLong(),
+                        EnumSet.of(Permission.VIEW_CHANNEL),
+                        null
+                )
+                .addRolePermissionOverride(
+                        data.get("manager-role").getAsLong(),
+                        EnumSet.of(Permission.VIEW_CHANNEL),
+                        null
+                )
+                .addRolePermissionOverride(
+                        data.get("admin-role").getAsLong(),
+                        EnumSet.of(Permission.VIEW_CHANNEL),
+                        null
+                )
                 .setTopic(topicBuilder.toString())
                 .queue(
                         channel -> {
