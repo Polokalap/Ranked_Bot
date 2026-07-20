@@ -20,7 +20,7 @@
 ---
 
 ## How to set up the bot for yourself:
-> I do NOT recommend setting it up yourself. The bot writes directly to the DB, uses the API (closed source for now). If you are the person reviewing it from HackClub, I'd rather just watch the video on it.
+> I do NOT recommend setting it up yourself. The bot writes directly to the DB, uses the API (closed source for now). If you are the person reviewing it from HackClub, I'd rather just read how tier testing works and watch the video linked under it.
 
 If you **do** have this much free time, basically you need to clone the repo, and build it with the following stuff changed to your bot:
 
@@ -78,6 +78,41 @@ Soo yup good luck with all that. When you are done, you can just run `./gradlew 
 
 > The player can select a gamemode, and if they meet the requirements, a **High Ticket** opens, which has a panel like this that only managers and above interact with:
 <img width="485" height="288" alt="image" src="https://github.com/user-attachments/assets/b4cabef9-7913-4e4e-967b-9b685f3cdc7d" />
+> A manager operates the high tier ticket, they use stuff like `/spin`.
+
+If you really care, you can also read about it on [our website](https://ranked.hu/docs/szabalyok).
+
+---
+
+## Commands
+
+- `/profile`
+<img width="550" height="505" alt="image" src="https://github.com/user-attachments/assets/f9731a16-262f-4db8-96f3-31ec03128917" />
+
+- `/spin`
+<img width="346" height="332" alt="image" src="https://github.com/user-attachments/assets/f03248ae-e7c3-42ec-a802-c05101dd12f2" />
+
+- `/ticket-nyitas`
+<img width="664" height="475" alt="image" src="https://github.com/user-attachments/assets/12160753-5b8b-46a1-b96a-9b09fc738e0d" />
+
+- `/ticket-panel`
+<img width="478" height="339" alt="image" src="https://github.com/user-attachments/assets/a48a5b4f-704b-493f-be13-3c4629050db6" />
+
+- `/add`
+<img width="368" height="116" alt="image" src="https://github.com/user-attachments/assets/825409a7-e4d9-4c81-8319-30bb48c4b699" />
+
+- `/admin-profile`
+<img width="698" height="765" alt="image" src="https://github.com/user-attachments/assets/aa27d98b-d44c-4d9a-8065-ac8b16e77669" />
+>  Yes I know it's ugly
+
+- `/high-ticket-panel`
+<img width="615" height="435" alt="image" src="https://github.com/user-attachments/assets/d08e1194-6fee-475a-9c62-5c94fbe8e45d" />
+
+- `/queue-panel`
+<img width="615" height="521" alt="image" src="https://github.com/user-attachments/assets/0b2ac0f9-163d-4499-ae23-fa0183168e1b" />
+
+- `/queue-ping`
+<img width="578" height="374" alt="image" src="https://github.com/user-attachments/assets/8beb7029-5ee8-455f-81db-f85d51d51d4c" />
 
 ---
 
