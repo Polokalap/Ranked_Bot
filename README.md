@@ -20,7 +20,7 @@
 ---
 
 ## How to set up the bot for yourself:
-> I do NOT recommend setting it up yourself. The bot writes directly to the DB, uses the API (closed source for now). If you are the person reviewing it from HackClub, I'd rather just read how tier testing works and watch the video linked under it.
+> I do NOT recommend setting it up yourself. The bot writes directly to the DB, uses the API (closed source for now). If you are the person reviewing it from HackClub, I'd rather just read how tier testing works and maybe DM me about it on Discord, or shoot her an email at `Polokalap@proton.me` if I have questions.
 
 If you **do** have this much free time, basically you need to clone the repo, and build it with the following stuff changed to your bot:
 
@@ -124,6 +124,10 @@ To set up a filter, you need to navigate to `resources/filter.json` then create 
 - "flags": "An an array of strings to flag"
 - "ignore": "An an array of strings not to flag (for example, youtube.com is in ignore and :// is in flags, this lets you send https://youtube.com and flags other websites)"
 - "always": "An array of strings to flag no matter what"
+
+> What a flag looks like:
+<img width="633" height="289" alt="image" src="https://github.com/user-attachments/assets/4a1d398e-5e63-4e6e-ad09-debfbc356031" />
+> You can see the blocked message and punish the user accordingly.
 
 ## Where to test the bot
 The bot is always running at [our discord server](https://dc.ranked.hu).
