@@ -53,7 +53,7 @@ And these categories:
 - Ticket Archives
 - Ticket Category
 
-You need to fill **all of these out** in the `data.yml`.
+You need to fill **all of these out** in the `data.json`.
 
 - `resources/ur_LANG.json`
 > Don't bother to make it yourself, ask claude to translate it. It's not worth your time.
