@@ -78,6 +78,7 @@ Soo yup good luck with all that. When you are done, you can just run `./gradlew 
 
 > The player can select a gamemode, and if they meet the requirements, a **High Ticket** opens, which has a panel like this that only managers and above interact with:
 <img width="485" height="288" alt="image" src="https://github.com/user-attachments/assets/b4cabef9-7913-4e4e-967b-9b685f3cdc7d" />
+
 > A manager operates the high tier ticket, they use stuff like `/spin`.
 
 If you really care, you can also read about it on [our website](https://ranked.hu/docs/szabalyok).
@@ -103,6 +104,7 @@ If you really care, you can also read about it on [our website](https://ranked.h
 
 - `/admin-profile`
 <img width="698" height="765" alt="image" src="https://github.com/user-attachments/assets/aa27d98b-d44c-4d9a-8065-ac8b16e77669" />
+
 >  Yes I know it's ugly
 
 - `/high-ticket-panel`
