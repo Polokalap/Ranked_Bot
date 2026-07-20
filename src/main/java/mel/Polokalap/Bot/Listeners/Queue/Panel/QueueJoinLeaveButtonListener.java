@@ -99,7 +99,7 @@ public class QueueJoinLeaveButtonListener extends ListenerAdapter {
 
             }
 
-            if (json.get("banned").getAsBoolean()) {
+            if (json.has("banned") && json.get("banned").getAsBoolean()) {
 
                 event.getHook().sendMessage(queue.get("banned").getAsString()).setEphemeral(true).queue();
                 return;

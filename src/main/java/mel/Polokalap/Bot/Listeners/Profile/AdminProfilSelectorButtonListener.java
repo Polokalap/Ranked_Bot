@@ -377,7 +377,23 @@ public class AdminProfilSelectorButtonListener extends ListenerAdapter {
                                 profile.get("set-tier").getAsString()
                                         .replace("%gamemode%", emoji + " " + gamemodeName)
                                         .replace("%player%", "<@" + userId + ">")
-                        ).setEphemeral(true).queue();
+                        ).setEphemeral(true).queue(
+
+                                message1 -> {
+
+                                    long channelId = data.get("logs-channel").getAsLong();
+                                    member.getGuild().getTextChannelById(channelId)
+                                            .sendMessage(
+                                                    lang.get("log").getAsJsonObject().get("message").getAsString()
+                                                            .replace("%admin%", member.getAsMention())
+                                                            .replace("%player%", player.getAsMention())
+                                                            .replace("%gamemode%", emoji)
+                                                            .replace("%tier%", tier)
+                                            ).queue();
+
+                                }
+
+                        );
 
                     }
 

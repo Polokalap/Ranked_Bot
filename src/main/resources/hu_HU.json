@@ -564,6 +564,23 @@
           }
         }
       }
+    },
+    "add": {
+      "name": "add",
+      "description": "Adj hozzá játékost a csatornához",
+      "permission": "Nincs ehhez jogod!",
+      "added": "Hozzá lett adva %player%",
+      "options": [
+        {
+          "type": "USER",
+          "name": "user",
+          "description": "A felhasználó Discordja",
+          "required": true
+        }
+      ]
     }
+  },
+  "log": {
+    "message": "%admin% -> %player%: %gamemode% %tier%"
   }
 }

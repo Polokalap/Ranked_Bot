@@ -9,6 +9,7 @@
       ],
       "ignore": [
         "tenor.com",
+        "klipy.com",
         "giphy.com",
         "media.giphy.com",
         "cdn.discordapp.com",

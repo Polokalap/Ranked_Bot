@@ -4,16 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added defenses">
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Fixed a check in AdminProfilSelectorButtonListener and added new roles to TicketUtil">
+      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Add/AddCommandListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfilSelectorButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfilSelectorButtonListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TicketUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TicketUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfileCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfileCommandListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueJoinLeaveButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueJoinLeaveButtonListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueTestButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueTestButtonListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/High/HighTicketSelectorButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/High/HighTicketSelectorButtonListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/filter.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/filter.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hu_HU.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hu_HU.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="49" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -78,6 +87,69 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Moderation/ModerationButtonListener.java" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0072389692335184" />
+      <entry key="MS500" value="1.3731945958242382" />
+      <entry key="S2" value="1.7815987147102728" />
+      <entry key="S5" value="1.906136560317567" />
+      <entry key="S10" value="1.952409844158606" />
+      <entry key="S30" value="2.0631689193317015" />
+      <entry key="S60" value="2.303057269046382" />
+      <entry key="M2" value="2.9444769010272425" />
+      <entry key="M5" value="5.401662346096588" />
+      <entry key="M10" value="10.850381567474761" />
+      <entry key="M15" value="16.34276900976139" />
+      <entry key="M30" value="27.327637613213522" />
+      <entry key="H1" value="36.602039163456716" />
+      <entry key="H2" value="42.68269636695275" />
+      <entry key="H4" value="46.171623440064835" />
+      <entry key="D1" value="49.33695582495052" />
+      <entry key="W1" value="49.90464835262131" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="4.9E-324" />
+      <entry key="MS500" value="2.748313711395527E-65" />
+      <entry key="S2" value="1.1633087007870034E-16" />
+      <entry key="S5" value="6.384693698596913E-7" />
+      <entry key="S10" value="0.0011298265179095907" />
+      <entry key="S30" value="0.17360217689317828" />
+      <entry key="S60" value="0.6668265905029563" />
+      <entry key="M2" value="1.4003370184713697" />
+      <entry key="M5" value="2.5282814341911912" />
+      <entry key="M10" value="4.1182458764473555" />
+      <entry key="M15" value="5.578899151745033" />
+      <entry key="M30" value="8.389678744588352" />
+      <entry key="H1" value="10.706463169339832" />
+      <entry key="H2" value="12.207710939806919" />
+      <entry key="H4" value="13.064049192219246" />
+      <entry key="D1" value="13.83816208519012" />
+      <entry key="W1" value="13.976732795163638" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.007651721075355773" />
+      <entry key="MS500" value="0.38076179775333163" />
+      <entry key="S2" value="1.0253365621830113" />
+      <entry key="S5" value="1.4736630607582268" />
+      <entry key="S10" value="1.7066423835669415" />
+      <entry key="S30" value="2.141272476601541" />
+      <entry key="S60" value="2.9135904278729328" />
+      <entry key="M2" value="4.309756106611783" />
+      <entry key="M5" value="7.908338379548933" />
+      <entry key="M10" value="14.949753185473726" />
+      <entry key="M15" value="21.9037814463244" />
+      <entry key="M30" value="35.70316629894122" />
+      <entry key="H1" value="47.29926045727607" />
+      <entry key="H2" value="54.88508147886367" />
+      <entry key="H4" value="59.23280829933176" />
+      <entry key="D1" value="63.17461014100613" />
+      <entry key="W1" value="63.88130783199558" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6,
   &quot;fromUser&quot;: false
@@ -92,12 +164,15 @@
     &quot;Gradle.RankedBOT [:mel.Polokalap.Bot.Main.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.RankedBOT [build].executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/polokalap/IdeaProjects/RankedBOT/run&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -106,7 +181,8 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;/home/polokalap/IdeaProjects/RankedBOT/src/main/java/mel/Polokalap/Main.java&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;dev.kikugie.stonecutter.projects&quot;: []
@@ -127,7 +203,7 @@
       <recent name="mel.Polokalap.Bot.Listeners.Ticket.Panel" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.RankedBOT [build]">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="mel.Polokalap.Bot.Main" />
       <module name="RankedBOT.main" />
@@ -140,6 +216,44 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mel.Polokalap.Bot.Main" />
+      <module name="RankedBOT.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mel.Polokalap.Bot.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RankedBOT [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
     </configuration>
     <configuration name="RankedBOT [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -429,7 +543,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781656807867</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Fixed a check in AdminProfilSelectorButtonListener and added new roles to TicketUtil">
+      <option name="closed" value="true" />
+      <created>1781705042333</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1781705042334</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -439,7 +561,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed &quot;permissions&quot; string check to &quot;permission&quot;" />
     <MESSAGE value="Added archive option to tickets" />
     <MESSAGE value="Switched from .env to data.json for channel ids" />
     <MESSAGE value="Fixed an error with double replying to an event and added a ticket panel." />
@@ -464,6 +585,7 @@
     <MESSAGE value="Fixed issue with checking tester when starting queue" />
     <MESSAGE value="idk" />
     <MESSAGE value="Added defenses" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added defenses" />
+    <MESSAGE value="Fixed a check in AdminProfilSelectorButtonListener and added new roles to TicketUtil" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a check in AdminProfilSelectorButtonListener and added new roles to TicketUtil" />
   </component>
 </project>

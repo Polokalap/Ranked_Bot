@@ -257,12 +257,16 @@ public class AdminProfileCommandListener extends ListenerAdapter {
 
             boolean retired;
             int defense;
+            boolean isTester;
 
             if (json.get("retired").getAsJsonObject().get(String.valueOf(storedId)) != null) retired = json.get("retired").getAsJsonObject().get(String.valueOf(storedId)).getAsBoolean();
             else retired = false;
 
             if (json.get("defense").getAsJsonObject().get(String.valueOf(gamemodeId)) != null) defense = json.get("defense").getAsJsonObject().get(String.valueOf(gamemodeId)).getAsInt();
             else defense = 0;
+
+            if (json.get("tester").getAsJsonObject().get(String.valueOf(gamemodeId)) != null) isTester = json.get("tester").getAsJsonObject().get(String.valueOf(gamemodeId)).getAsBoolean();
+            else isTester = false;
 
             if (tier.isEmpty()) tier = "unranked";
 
@@ -276,7 +280,7 @@ public class AdminProfileCommandListener extends ListenerAdapter {
                     tierArray.get(1).getAsJsonObject().get("name").getAsString(),
                     tierArray.get(1).getAsJsonObject().get("id").getAsLong(),
                     false
-            ).getAsMention() + " " + "(" + String.valueOf(defense) + ")");
+            ).getAsMention() + " " + "(" + String.valueOf(defense) + ") (" + isTester + ")");
 
             embed.addField(
                     Emoji.fromCustom(obj.get("name").getAsString(), obj.get("id").getAsLong(), false).getAsMention()

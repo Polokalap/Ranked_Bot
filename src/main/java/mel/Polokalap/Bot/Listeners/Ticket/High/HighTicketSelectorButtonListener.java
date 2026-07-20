@@ -389,9 +389,25 @@ public class HighTicketSelectorButtonListener extends ListenerAdapter {
 
         }
 
+        String emoji = Emoji.fromCustom(
+                data.get("gamemodes").getAsJsonArray().get(gamemodeId).getAsJsonObject().get("name").getAsString(),
+                data.get("gamemodes").getAsJsonArray().get(gamemodeId).getAsJsonObject().get("id").getAsLong(),
+                false
+        ).getAsMention();
+
         guild.retrieveMemberById(userId).queue(
 
                 player -> {
+
+                    long channelId = data.get("logs-channel").getAsLong();
+                    member.getGuild().getTextChannelById(channelId)
+                            .sendMessage(
+                                    lang.get("log").getAsJsonObject().get("message").getAsString()
+                                            .replace("%admin%", member.getAsMention())
+                                            .replace("%player%", player.getAsMention())
+                                            .replace("%gamemode%", emoji)
+                                            .replace("%tier%", tier)
+                            ).queue();
 
                     TestResult.anounceTest(member, player, guild, gamemodeId, Tiers.valueOf(tier));
                     QueueUtil.setTier(player, gamemodeId, Tiers.valueOf(tier));
