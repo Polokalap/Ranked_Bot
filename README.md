@@ -20,7 +20,7 @@
 
 If you **do** have this much free time, basically you need to clone the repo, and build it with the following stuff changed to your bot:
 
-- resources/.env
+- `resources/.env`
 ```
 BOT_TOKEN=DC_BOT_TOKEN
 DB_HOST=YOUR_SERVER
@@ -30,7 +30,7 @@ DB_USER=DB_USERNAME
 DB_PASSWORD=DB_PASSWORD
 ```
 
-- resources/data.json
+- `resources/data.json`
 > You need to download [this archive](https://github.com/Polokalap/Ranked_Bot/raw/refs/heads/master/emojis.tar.xz) of the icons that you need to upload to the Discord Developer Portal. This process itelf takes about **30 minutes** because you have to set **every emoji with it's id in the data.json**.
 For the channels, just create the following channels:
 - Mod Alerts
@@ -50,6 +50,13 @@ And these categories:
 - Ticket Category
 
 You need to fill **all of these out** in the `data.yml`.
+
+- `resources/ur_LANG.json`
+> Don't bother to make it yourself, ask claude to translate it. It's not worth your time.
+
+Soo yup good luck with all that. When you are done, you can just run `./gradlew clean build` and run the jar archive via `java -jar build/libs/RankedBOT-1.0-SNAPSHOT.jar`.
+
+## 
 
 ## How to use the moderation system
 To set up a filter, you need to navigate to `resources/filter.json` then create a field inside of the `flags` array. You must set the following fields in the flag:
