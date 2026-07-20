@@ -66,18 +66,28 @@ Soo yup good luck with all that. When you are done, you can just run `./gradlew 
 > So first, your server needs **tier testers**. Tier testers are basically known good players who can rate new players. They test players by going to the Queue Panel that you set up as an admin by typing the following command: `/queue-panel`. This creates a new queue panel that looks something like this:
 <img width="602" height="386" alt="image" src="https://github.com/user-attachments/assets/bc61d2f9-3255-4b78-87b6-c68b750e3f04" />
 
+---
+
 > Tier testers can select a gamemode, which is **mace** in my case and open a **queue**. A queue looks like this:
 <img width="433" height="315" alt="image" src="https://github.com/user-attachments/assets/5f622312-1af4-4d86-986b-800d803e6cc8" />
+
+---
 
 > The bot pings all users who have the queue ping role for that gamemode, and lets users join by clicking the button under it, which is "Belépés a queue-ba" in my language.
 > The tester can click the "Következő ember" button on the queue panel, which opens a new ticket for the #1 person in the queue. Here, a tester can give a tier to the player from **LT5-LT3**, LT3 being the best.
 <img width="602" height="252" alt="image" src="https://github.com/user-attachments/assets/0029eef1-6747-4532-b1c4-22f48b3dc353" />
 
+---
+
 > If a player plays well and gets the highest tier (aka LT3), they can apply for a **High Test**. The panel looks like this and can be set up with the `/high-ticket-panel` command:
 <img width="605" height="299" alt="image" src="https://github.com/user-attachments/assets/5ce72faf-ec9a-4664-995e-d0209de7f9e9" />
 
+---
+
 > The player can select a gamemode, and if they meet the requirements, a **High Ticket** opens, which has a panel like this that only managers and above interact with:
 <img width="485" height="288" alt="image" src="https://github.com/user-attachments/assets/b4cabef9-7913-4e4e-967b-9b685f3cdc7d" />
+
+---
 
 > A manager operates the high tier ticket, they use stuff like `/spin`.
 
@@ -87,33 +97,33 @@ If you really care, you can also read about it on [our website](https://ranked.h
 
 ## Commands
 
-- `/profile`
+/profile
 <img width="550" height="505" alt="image" src="https://github.com/user-attachments/assets/f9731a16-262f-4db8-96f3-31ec03128917" />
 
-- `/spin`
+/spin
 <img width="346" height="332" alt="image" src="https://github.com/user-attachments/assets/f03248ae-e7c3-42ec-a802-c05101dd12f2" />
 
-- `/ticket-nyitas`
+/ticket-nyitas
 <img width="664" height="475" alt="image" src="https://github.com/user-attachments/assets/12160753-5b8b-46a1-b96a-9b09fc738e0d" />
 
-- `/ticket-panel`
+/ticket-panel
 <img width="478" height="339" alt="image" src="https://github.com/user-attachments/assets/a48a5b4f-704b-493f-be13-3c4629050db6" />
 
-- `/add`
+/add
 <img width="368" height="116" alt="image" src="https://github.com/user-attachments/assets/825409a7-e4d9-4c81-8319-30bb48c4b699" />
 
-- `/admin-profile`
+/admin-profile
 <img width="698" height="765" alt="image" src="https://github.com/user-attachments/assets/aa27d98b-d44c-4d9a-8065-ac8b16e77669" />
 
 >  Yes I know it's ugly
 
-- `/high-ticket-panel`
+/high-ticket-panel
 <img width="615" height="435" alt="image" src="https://github.com/user-attachments/assets/d08e1194-6fee-475a-9c62-5c94fbe8e45d" />
 
-- `/queue-panel`
+/queue-panel
 <img width="615" height="521" alt="image" src="https://github.com/user-attachments/assets/0b2ac0f9-163d-4499-ae23-fa0183168e1b" />
 
-- `/queue-ping`
+/queue-ping
 <img width="578" height="374" alt="image" src="https://github.com/user-attachments/assets/8beb7029-5ee8-455f-81db-f85d51d51d4c" />
 
 ---
