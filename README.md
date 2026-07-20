@@ -2,6 +2,8 @@
 
 > This bot was created by Polokalap for [HackClub StarDance](https://stardance.hackclub.com/projects/1911) and is licensed under AGPL-3.0.
 
+---
+
 ## Features
 - Customizeable moderation system
 - Link spam filter
@@ -14,6 +16,8 @@
 - High tier testing (tickets but cooler)
 - Spin command (may rework later)
 - Admin profile command
+
+---
 
 ## How to set up the bot for yourself:
 > I do NOT recommend setting it up yourself. The bot writes directly to the DB, uses the API (closed source for now). If you are the person reviewing it from HackClub, I'd rather just watch the video on it.
@@ -56,7 +60,26 @@ You need to fill **all of these out** in the `data.yml`.
 
 Soo yup good luck with all that. When you are done, you can just run `./gradlew clean build` and run the jar archive via `java -jar build/libs/RankedBOT-1.0-SNAPSHOT.jar`.
 
-## 
+---
+
+## How the tier testing works
+> So first, your server needs **tier testers**. Tier testers are basically known good players who can rate new players. They test players by going to the Queue Panel that you set up as an admin by typing the following command: `/queue-panel`. This creates a new queue panel that looks something like this:
+<img width="602" height="386" alt="image" src="https://github.com/user-attachments/assets/bc61d2f9-3255-4b78-87b6-c68b750e3f04" />
+
+> Tier testers can select a gamemode, which is **mace** in my case and open a **queue**. A queue looks like this:
+<img width="433" height="315" alt="image" src="https://github.com/user-attachments/assets/5f622312-1af4-4d86-986b-800d803e6cc8" />
+
+> The bot pings all users who have the queue ping role for that gamemode, and lets users join by clicking the button under it, which is "Belépés a queue-ba" in my language.
+> The tester can click the "Következő ember" button on the queue panel, which opens a new ticket for the #1 person in the queue. Here, a tester can give a tier to the player from **LT5-LT3**, LT3 being the best.
+<img width="602" height="252" alt="image" src="https://github.com/user-attachments/assets/0029eef1-6747-4532-b1c4-22f48b3dc353" />
+
+> If a player plays well and gets the highest tier (aka LT3), they can apply for a **High Test**. The panel looks like this and can be set up with the `/high-ticket-panel` command:
+<img width="605" height="299" alt="image" src="https://github.com/user-attachments/assets/5ce72faf-ec9a-4664-995e-d0209de7f9e9" />
+
+> The player can select a gamemode, and if they meet the requirements, a **High Ticket** opens, which has a panel like this that only managers and above interact with:
+<img width="485" height="288" alt="image" src="https://github.com/user-attachments/assets/b4cabef9-7913-4e4e-967b-9b685f3cdc7d" />
+
+---
 
 ## How to use the moderation system
 To set up a filter, you need to navigate to `resources/filter.json` then create a field inside of the `flags` array. You must set the following fields in the flag:
