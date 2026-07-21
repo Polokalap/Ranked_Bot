@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Fixed a check in AdminProfilSelectorButtonListener and added new roles to TicketUtil">
-      <change afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Add/AddCommandListener.java" afterDir="false" />
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Updates + uploaded emojis">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfilSelectorButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfilSelectorButtonListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfileCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfileCommandListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueJoinLeaveButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueJoinLeaveButtonListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueTestButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueTestButtonListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/High/HighTicketSelectorButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/High/HighTicketSelectorButtonListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/filter.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/filter.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hu_HU.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hu_HU.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TicketUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TicketUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,61 +85,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0072389692335184" />
-      <entry key="MS500" value="1.3731945958242382" />
-      <entry key="S2" value="1.7815987147102728" />
-      <entry key="S5" value="1.906136560317567" />
-      <entry key="S10" value="1.952409844158606" />
-      <entry key="S30" value="2.0631689193317015" />
-      <entry key="S60" value="2.303057269046382" />
-      <entry key="M2" value="2.9444769010272425" />
-      <entry key="M5" value="5.401662346096588" />
-      <entry key="M10" value="10.850381567474761" />
-      <entry key="M15" value="16.34276900976139" />
-      <entry key="M30" value="27.327637613213522" />
-      <entry key="H1" value="36.602039163456716" />
-      <entry key="H2" value="42.68269636695275" />
-      <entry key="H4" value="46.171623440064835" />
-      <entry key="D1" value="49.33695582495052" />
-      <entry key="W1" value="49.90464835262131" />
+      <entry key="MS100" value="1.0023188388396482" />
+      <entry key="MS500" value="1.4543616952227905" />
+      <entry key="S2" value="3.435418748626423" />
+      <entry key="S5" value="6.3840543560847625" />
+      <entry key="S10" value="9.014864225515357" />
+      <entry key="S30" value="12.016674664305603" />
+      <entry key="S60" value="13.18980596118576" />
+      <entry key="M2" value="14.32710341416721" />
+      <entry key="M5" value="17.0801650508195" />
+      <entry key="M10" value="22.610234462073993" />
+      <entry key="M15" value="28.12950488820973" />
+      <entry key="M30" value="39.16782081868409" />
+      <entry key="H1" value="48.499660990045086" />
+      <entry key="H2" value="54.62413716680253" />
+      <entry key="H4" value="58.140228794341134" />
+      <entry key="D1" value="61.33140350734055" />
+      <entry key="W1" value="61.90384696795611" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="4.9E-324" />
-      <entry key="MS500" value="2.748313711395527E-65" />
-      <entry key="S2" value="1.1633087007870034E-16" />
-      <entry key="S5" value="6.384693698596913E-7" />
-      <entry key="S10" value="0.0011298265179095907" />
-      <entry key="S30" value="0.17360217689317828" />
-      <entry key="S60" value="0.6668265905029563" />
-      <entry key="M2" value="1.4003370184713697" />
-      <entry key="M5" value="2.5282814341911912" />
-      <entry key="M10" value="4.1182458764473555" />
-      <entry key="M15" value="5.578899151745033" />
-      <entry key="M30" value="8.389678744588352" />
-      <entry key="H1" value="10.706463169339832" />
-      <entry key="H2" value="12.207710939806919" />
-      <entry key="H4" value="13.064049192219246" />
-      <entry key="D1" value="13.83816208519012" />
-      <entry key="W1" value="13.976732795163638" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="7.673961099803515E-73" />
+      <entry key="S2" value="1.5037765168379608E-18" />
+      <entry key="S5" value="1.1213350466931939E-7" />
+      <entry key="S10" value="4.7348849213517283E-4" />
+      <entry key="S30" value="0.12991353139556017" />
+      <entry key="S60" value="0.576849499628429" />
+      <entry key="M2" value="1.3024389487376378" />
+      <entry key="M5" value="2.4560394462257613" />
+      <entry key="M10" value="4.058983008693357" />
+      <entry key="M15" value="5.525248536842747" />
+      <entry key="M30" value="8.349240766326039" />
+      <entry key="H1" value="10.6806296006376" />
+      <entry key="H2" value="12.19297408403945" />
+      <entry key="H4" value="13.056161507663964" />
+      <entry key="D1" value="13.836769222927208" />
+      <entry key="W1" value="13.976531813648238" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.007651721075355773" />
-      <entry key="MS500" value="0.38076179775333163" />
-      <entry key="S2" value="1.0253365621830113" />
-      <entry key="S5" value="1.4736630607582268" />
-      <entry key="S10" value="1.7066423835669415" />
-      <entry key="S30" value="2.141272476601541" />
-      <entry key="S60" value="2.9135904278729328" />
-      <entry key="M2" value="4.309756106611783" />
-      <entry key="M5" value="7.908338379548933" />
-      <entry key="M10" value="14.949753185473726" />
-      <entry key="M15" value="21.9037814463244" />
-      <entry key="M30" value="35.70316629894122" />
-      <entry key="H1" value="47.29926045727607" />
-      <entry key="H2" value="54.88508147886367" />
-      <entry key="H4" value="59.23280829933176" />
-      <entry key="D1" value="63.17461014100613" />
-      <entry key="W1" value="63.88130783199558" />
+      <entry key="MS100" value="0.6178119737207048" />
+      <entry key="MS500" value="1.3581658465122954" />
+      <entry key="S2" value="3.3878412376068483" />
+      <entry key="S5" value="6.281807389571016" />
+      <entry key="S10" value="8.893910153026333" />
+      <entry key="S30" value="12.06740371772137" />
+      <entry key="S60" value="13.713819846540792" />
+      <entry key="M2" value="15.594791083056576" />
+      <entry key="M5" value="19.51433982096867" />
+      <entry key="M10" value="26.650173296868804" />
+      <entry key="M15" value="33.63674365400286" />
+      <entry key="M30" value="47.50283183460521" />
+      <entry key="H1" value="59.170996977204126" />
+      <entry key="H2" value="66.81175481070001" />
+      <entry key="H4" value="71.19350917205871" />
+      <entry key="D1" value="75.16766192372282" />
+      <entry key="W1" value="75.88030502563295" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -191,6 +183,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/run" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="mel.Polokalap.Bot.Listeners" />
@@ -551,7 +546,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781705042334</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Updates + uploaded emojis">
+      <option name="closed" value="true" />
+      <created>1784587831089</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1784587831089</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -561,7 +564,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added archive option to tickets" />
     <MESSAGE value="Switched from .env to data.json for channel ids" />
     <MESSAGE value="Fixed an error with double replying to an event and added a ticket panel." />
     <MESSAGE value="Added /profile" />
@@ -586,6 +588,7 @@
     <MESSAGE value="idk" />
     <MESSAGE value="Added defenses" />
     <MESSAGE value="Fixed a check in AdminProfilSelectorButtonListener and added new roles to TicketUtil" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed a check in AdminProfilSelectorButtonListener and added new roles to TicketUtil" />
+    <MESSAGE value="Updates + uploaded emojis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates + uploaded emojis" />
   </component>
 </project>
