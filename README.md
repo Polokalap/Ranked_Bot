@@ -161,5 +161,9 @@ To set up a filter, you need to navigate to `resources/filter.json` then create 
 
 ---
 
+Video on the bot:
+
+https://youtu.be/s5LIe7UZgN8?si=FvQcjm4iOb0ud7HV
+
 ## Where to test the bot
 The bot is always running at [our discord server](https://dc.ranked.hu).
