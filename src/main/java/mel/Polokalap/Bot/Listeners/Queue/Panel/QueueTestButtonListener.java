@@ -139,7 +139,7 @@ public class QueueTestButtonListener extends ListenerAdapter {
 
                     TestResult.anounceTest(member, player, guild, modalId.get(member), Tiers.valueOf(tier));
                     QueueUtil.setTier(player, modalId.get(member), Tiers.valueOf(tier));
-                    QueueUtil.addCooldown(player, modalId.get(member));
+                    if (!tier.toLowerCase().equals("lt3")) QueueUtil.addCooldown(player, modalId.get(member));
                     testing.remove(member);
                     event.getHook().sendMessage(queue.get("tier-given").getAsString()).setEphemeral(true).queue();
                     event.getChannel().delete().queueAfter(3L, TimeUnit.SECONDS);

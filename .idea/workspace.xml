@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Updates + uploaded emojis">
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Fixed an issue with opening tickets via commands">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TicketUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TicketUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueTestButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueTestButtonListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="49" />
+    <option name="cachedIndexableFilesCount" value="50" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -85,61 +85,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0023188388396482" />
-      <entry key="MS500" value="1.4543616952227905" />
-      <entry key="S2" value="3.435418748626423" />
-      <entry key="S5" value="6.3840543560847625" />
-      <entry key="S10" value="9.014864225515357" />
-      <entry key="S30" value="12.016674664305603" />
-      <entry key="S60" value="13.18980596118576" />
-      <entry key="M2" value="14.32710341416721" />
-      <entry key="M5" value="17.0801650508195" />
-      <entry key="M10" value="22.610234462073993" />
-      <entry key="M15" value="28.12950488820973" />
-      <entry key="M30" value="39.16782081868409" />
-      <entry key="H1" value="48.499660990045086" />
-      <entry key="H2" value="54.62413716680253" />
-      <entry key="H4" value="58.140228794341134" />
-      <entry key="D1" value="61.33140350734055" />
-      <entry key="W1" value="61.90384696795611" />
+      <entry key="MS100" value="1.0000000004082013" />
+      <entry key="MS500" value="1.0136356170063483" />
+      <entry key="S2" value="1.8514580407196441" />
+      <entry key="S5" value="5.490073414646622" />
+      <entry key="S10" value="10.738868961011468" />
+      <entry key="S30" value="18.88815326893678" />
+      <entry key="S60" value="22.091871331287958" />
+      <entry key="M2" value="23.947869440170745" />
+      <entry key="M5" value="25.15507774411627" />
+      <entry key="M10" value="25.735912511618974" />
+      <entry key="M15" value="26.764431268586232" />
+      <entry key="M30" value="33.42464718903476" />
+      <entry key="H1" value="47.24709823828463" />
+      <entry key="H2" value="62.179831335713935" />
+      <entry key="H4" value="73.32257235332301" />
+      <entry key="D1" value="85.2634637775627" />
+      <entry key="W1" value="87.60128559889351" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="7.673961099803515E-73" />
-      <entry key="S2" value="1.5037765168379608E-18" />
-      <entry key="S5" value="1.1213350466931939E-7" />
-      <entry key="S10" value="4.7348849213517283E-4" />
-      <entry key="S30" value="0.12991353139556017" />
-      <entry key="S60" value="0.576849499628429" />
-      <entry key="M2" value="1.3024389487376378" />
-      <entry key="M5" value="2.4560394462257613" />
-      <entry key="M10" value="4.058983008693357" />
-      <entry key="M15" value="5.525248536842747" />
-      <entry key="M30" value="8.349240766326039" />
-      <entry key="H1" value="10.6806296006376" />
-      <entry key="H2" value="12.19297408403945" />
-      <entry key="H4" value="13.056161507663964" />
-      <entry key="D1" value="13.836769222927208" />
-      <entry key="W1" value="13.976531813648238" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="1.0678713086011681E-264" />
+      <entry key="S10" value="1.461171488213475E-132" />
+      <entry key="S30" value="1.8914069269521863E-44" />
+      <entry key="S60" value="2.2010393847480995E-22" />
+      <entry key="M2" value="2.5441342336765187E-11" />
+      <entry key="M5" value="1.2780516236257254E-4" />
+      <entry key="M10" value="0.02928018137880213" />
+      <entry key="M15" value="0.20627954801489073" />
+      <entry key="M30" value="1.613240667416728" />
+      <entry key="H1" value="4.694863202201929" />
+      <entry key="H2" value="8.083932803125823" />
+      <entry key="H4" value="10.63094902721274" />
+      <entry key="D1" value="13.370904428842369" />
+      <entry key="W1" value="13.908316746099102" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.6178119737207048" />
-      <entry key="MS500" value="1.3581658465122954" />
-      <entry key="S2" value="3.3878412376068483" />
-      <entry key="S5" value="6.281807389571016" />
-      <entry key="S10" value="8.893910153026333" />
-      <entry key="S30" value="12.06740371772137" />
-      <entry key="S60" value="13.713819846540792" />
-      <entry key="M2" value="15.594791083056576" />
-      <entry key="M5" value="19.51433982096867" />
-      <entry key="M10" value="26.650173296868804" />
-      <entry key="M15" value="33.63674365400286" />
-      <entry key="M30" value="47.50283183460521" />
-      <entry key="H1" value="59.170996977204126" />
-      <entry key="H2" value="66.81175481070001" />
-      <entry key="H4" value="71.19350917205871" />
-      <entry key="D1" value="75.16766192372282" />
-      <entry key="W1" value="75.88030502563295" />
+      <entry key="MS100" value="4.8750761662931273E-8" />
+      <entry key="MS500" value="0.034972072874016234" />
+      <entry key="S2" value="1.035828676494357" />
+      <entry key="S5" value="4.931531553223406" />
+      <entry key="S10" value="10.387265863299463" />
+      <entry key="S30" value="18.748841501856646" />
+      <entry key="S60" value="22.01893136365605" />
+      <entry key="M2" value="23.910531811562425" />
+      <entry key="M5" value="25.14005476929096" />
+      <entry key="M10" value="25.75744418128502" />
+      <entry key="M15" value="26.96495624071809" />
+      <entry key="M30" value="35.0325932181616" />
+      <entry key="H1" value="51.936602664217624" />
+      <entry key="H2" value="70.25957576765585" />
+      <entry key="H4" value="83.95085683579964" />
+      <entry key="D1" value="98.63382149058444" />
+      <entry key="W1" value="101.50952136200951" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -554,7 +554,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784587831089</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Fixed an issue with opening tickets via commands">
+      <option name="closed" value="true" />
+      <created>1784592090709</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1784592090709</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -564,7 +572,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Switched from .env to data.json for channel ids" />
     <MESSAGE value="Fixed an error with double replying to an event and added a ticket panel." />
     <MESSAGE value="Added /profile" />
     <MESSAGE value="Added welcome role and welcome messages." />
@@ -589,6 +596,7 @@
     <MESSAGE value="Added defenses" />
     <MESSAGE value="Fixed a check in AdminProfilSelectorButtonListener and added new roles to TicketUtil" />
     <MESSAGE value="Updates + uploaded emojis" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates + uploaded emojis" />
+    <MESSAGE value="Fixed an issue with opening tickets via commands" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed an issue with opening tickets via commands" />
   </component>
 </project>
