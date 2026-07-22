@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -17,6 +18,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -91,10 +93,18 @@ public class SpinCommand extends ListenerAdapter {
         JsonObject json = JsonParser.parseString(response.body()).getAsJsonObject();
 
         ArrayList<String> players = new ArrayList<>();
+        HashMap<String, JsonElement> playerElements = new HashMap<>();
 
         for (JsonElement player : json.get(tierCategory).getAsJsonArray()) {
 
-            if (player.getAsJsonObject().get("tier").getAsString().toLowerCase().equals(tier.toLowerCase())) players.add("<@" + player.getAsJsonObject().get("discord_id").getAsString() + ">");
+            if (player.getAsJsonObject().get("tier").getAsString().toLowerCase().equals(tier.toLowerCase())) {
+
+                String playerName = "<@" + player.getAsJsonObject().get("discord_id").getAsString() + ">";
+
+                players.add(playerName);
+                playerElements.put(playerName, player);
+
+            }
 
         }
 
@@ -157,12 +167,16 @@ public class SpinCommand extends ListenerAdapter {
 
         for (String player : players) if (playersText.length() < 1500) playersText = playersText + player + "\n";
 
+        String selectedPlayer = players.get(random.nextInt(players.size()));
+        String playerName = playerElements.get(selectedPlayer).getAsJsonObject().get("name").getAsString();
+
         String description = descriptionBuilder
                 .toString()
                         .replace("%tier%", tierLeft + tierRight)
                         .replace("%gamemode%", gamemodeEmoji)
                         .replace("%count%", String.valueOf(players.size()))
-                        .replace("%player%", players.get(random.nextInt(players.size())))
+                        .replace("%player%", selectedPlayer)
+                        .replace("%username%", playerName)
                         .replace("%players%", playersText);
 
         JsonArray colors = embedJson.get("color").getAsJsonArray();

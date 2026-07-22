@@ -455,7 +455,7 @@
           "**Tier**: %tier%",
           "**Játékmód**: %gamemode%",
           "",
-          "**Sorsolva**: %player%",
+          "**Sorsolva**: %player% (%username%)",
           "",
           "**Játékosok**: (%count%)",
           "%players%"

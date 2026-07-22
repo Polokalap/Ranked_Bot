@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Fixed an issue with opening tickets via commands">
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Fixed tier giving cooldown for LT3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueTestButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueTestButtonListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Spin/SpinCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Spin/SpinCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hu_HU.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hu_HU.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,61 +86,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000004082013" />
-      <entry key="MS500" value="1.0136356170063483" />
-      <entry key="S2" value="1.8514580407196441" />
-      <entry key="S5" value="5.490073414646622" />
-      <entry key="S10" value="10.738868961011468" />
-      <entry key="S30" value="18.88815326893678" />
-      <entry key="S60" value="22.091871331287958" />
-      <entry key="M2" value="23.947869440170745" />
-      <entry key="M5" value="25.15507774411627" />
-      <entry key="M10" value="25.735912511618974" />
-      <entry key="M15" value="26.764431268586232" />
-      <entry key="M30" value="33.42464718903476" />
-      <entry key="H1" value="47.24709823828463" />
-      <entry key="H2" value="62.179831335713935" />
-      <entry key="H4" value="73.32257235332301" />
-      <entry key="D1" value="85.2634637775627" />
-      <entry key="W1" value="87.60128559889351" />
+      <entry key="MS100" value="7.817101676600875E-19" />
+      <entry key="MS500" value="2.4127708814219572E-4" />
+      <entry key="S2" value="0.16335673972009412" />
+      <entry key="S5" value="0.8399183621252071" />
+      <entry key="S10" value="2.157751666727446" />
+      <entry key="S30" value="6.691609849324034" />
+      <entry key="S60" value="10.882959467647918" />
+      <entry key="M2" value="15.543248160602245" />
+      <entry key="M5" value="24.23913022585346" />
+      <entry key="M10" value="32.29594865613292" />
+      <entry key="M15" value="37.28165154046257" />
+      <entry key="M30" value="48.3726292872183" />
+      <entry key="H1" value="66.18752173462202" />
+      <entry key="H2" value="88.18557018072241" />
+      <entry key="H4" value="107.02708035697431" />
+      <entry key="D1" value="129.51747368677516" />
+      <entry key="W1" value="134.19367471527383" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="1.0678713086011681E-264" />
-      <entry key="S10" value="1.461171488213475E-132" />
-      <entry key="S30" value="1.8914069269521863E-44" />
-      <entry key="S60" value="2.2010393847480995E-22" />
-      <entry key="M2" value="2.5441342336765187E-11" />
-      <entry key="M5" value="1.2780516236257254E-4" />
-      <entry key="M10" value="0.02928018137880213" />
-      <entry key="M15" value="0.20627954801489073" />
-      <entry key="M30" value="1.613240667416728" />
-      <entry key="H1" value="4.694863202201929" />
-      <entry key="H2" value="8.083932803125823" />
-      <entry key="H4" value="10.63094902721274" />
-      <entry key="D1" value="13.370904428842369" />
-      <entry key="W1" value="13.908316746099102" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.000043098584921" />
+      <entry key="S2" value="1.0819709585272201" />
+      <entry key="S5" value="1.427773919446191" />
+      <entry key="S10" value="1.8626309354121542" />
+      <entry key="S30" value="2.776447217048153" />
+      <entry key="S60" value="3.58839972057968" />
+      <entry key="M2" value="4.466477145156738" />
+      <entry key="M5" value="5.510275095368865" />
+      <entry key="M10" value="6.111758515151574" />
+      <entry key="M15" value="6.377709175854418" />
+      <entry key="M30" value="7.025078002759072" />
+      <entry key="H1" value="9.055433537111591" />
+      <entry key="H2" value="12.483521796793308" />
+      <entry key="H4" value="15.781727730938341" />
+      <entry key="D1" value="19.955257386290054" />
+      <entry key="W1" value="20.84578585001714" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="4.8750761662931273E-8" />
-      <entry key="MS500" value="0.034972072874016234" />
-      <entry key="S2" value="1.035828676494357" />
-      <entry key="S5" value="4.931531553223406" />
-      <entry key="S10" value="10.387265863299463" />
-      <entry key="S30" value="18.748841501856646" />
-      <entry key="S60" value="22.01893136365605" />
-      <entry key="M2" value="23.910531811562425" />
-      <entry key="M5" value="25.14005476929096" />
-      <entry key="M10" value="25.75744418128502" />
-      <entry key="M15" value="26.96495624071809" />
-      <entry key="M30" value="35.0325932181616" />
-      <entry key="H1" value="51.936602664217624" />
-      <entry key="H2" value="70.25957576765585" />
-      <entry key="H4" value="83.95085683579964" />
-      <entry key="D1" value="98.63382149058444" />
-      <entry key="W1" value="101.50952136200951" />
+      <entry key="MS100" value="2.562784872126629E-4" />
+      <entry key="MS500" value="0.19140252739385297" />
+      <entry key="S2" value="0.8358946630901485" />
+      <entry key="S5" value="1.9357480698923843" />
+      <entry key="S10" value="3.7080440352802313" />
+      <entry key="S30" value="9.224405063761445" />
+      <entry key="S60" value="14.296005756269516" />
+      <entry key="M2" value="19.89632675604056" />
+      <entry key="M5" value="29.691624432546682" />
+      <entry key="M10" value="38.3749240802889" />
+      <entry key="M15" value="43.63616076818031" />
+      <entry key="M30" value="55.384411211013045" />
+      <entry key="H1" value="75.2341762095142" />
+      <entry key="H2" value="100.66304003014962" />
+      <entry key="H4" value="122.80500100160577" />
+      <entry key="D1" value="149.47193349392364" />
+      <entry key="W1" value="155.0393416752805" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -562,7 +563,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784592090709</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Fixed tier giving cooldown for LT3">
+      <option name="closed" value="true" />
+      <created>1784662464799</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1784662464800</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -572,7 +581,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed an error with double replying to an event and added a ticket panel." />
     <MESSAGE value="Added /profile" />
     <MESSAGE value="Added welcome role and welcome messages." />
     <MESSAGE value="Added null check for /profile" />
@@ -597,6 +605,7 @@
     <MESSAGE value="Fixed a check in AdminProfilSelectorButtonListener and added new roles to TicketUtil" />
     <MESSAGE value="Updates + uploaded emojis" />
     <MESSAGE value="Fixed an issue with opening tickets via commands" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an issue with opening tickets via commands" />
+    <MESSAGE value="Fixed tier giving cooldown for LT3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed tier giving cooldown for LT3" />
   </component>
 </project>
