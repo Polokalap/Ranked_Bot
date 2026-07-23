@@ -125,7 +125,7 @@ public class HighTestTicketUtil {
 
         Category category = guild.getCategoryById(categoryId);
 
-        guild.createTextChannel(queue.get("prefix").getAsString() + player.getEffectiveName())
+        guild.createTextChannel(queue.get("prefix").getAsString() + player.getUser().getName())
                 .setParent(category)
                 .addMemberPermissionOverride(
                         player.getIdLong(),

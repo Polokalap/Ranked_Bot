@@ -120,11 +120,11 @@ public class AdminProfilSelectorButtonListener extends ListenerAdapter {
 
             event.deferReply(true).queue();
 
-            long userId = Long.parseLong(id.replace("admin-command-unban-", ""));
+            long userId = Long.parseLong(id.replace("admin-command-ban-", ""));
 
             Database.execute(
                     "UPDATE players SET banned = ? WHERE discord_id = ?;",
-                    false,
+                    true,
                     String.valueOf(userId)
             );
 

@@ -104,7 +104,7 @@ public class TicketUtil {
         );
         embed.setThumbnail(member.getEffectiveAvatarUrl());
 
-        guild.createTextChannel(ticket.get("prefix").getAsString() + member.getEffectiveName())
+        guild.createTextChannel(ticket.get("prefix").getAsString() + member.getUser().getName())
                 .setParent(category)
                 .addMemberPermissionOverride(
                         member.getIdLong(),
@@ -183,7 +183,7 @@ public class TicketUtil {
 
             topicBuilder.append(
                     topicLine.getAsString()
-                            .replace("%username%", member.getEffectiveName())
+                            .replace("%username%", member.getUser().getName())
                             .replace("%id%", member.getId())
                             + "\n"
             );
@@ -237,7 +237,7 @@ public class TicketUtil {
         );
         embed.setThumbnail(member.getEffectiveAvatarUrl());
 
-        guild.createTextChannel(ticket.get("prefix").getAsString() + member.getEffectiveName())
+        guild.createTextChannel(ticket.get("prefix").getAsString() + member.getUser().getName())
                 .setParent(category)
                 .addMemberPermissionOverride(
                         member.getIdLong(),

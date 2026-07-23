@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Fixed tier giving cooldown for LT3">
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added player names to /spin command">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Spin/SpinCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Spin/SpinCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hu_HU.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hu_HU.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfilSelectorButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfilSelectorButtonListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/HighTestTicketUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/HighTestTicketUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/QueueUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/QueueUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TicketUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TicketUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,61 +88,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="7.817101676600875E-19" />
-      <entry key="MS500" value="2.4127708814219572E-4" />
-      <entry key="S2" value="0.16335673972009412" />
-      <entry key="S5" value="0.8399183621252071" />
-      <entry key="S10" value="2.157751666727446" />
-      <entry key="S30" value="6.691609849324034" />
-      <entry key="S60" value="10.882959467647918" />
-      <entry key="M2" value="15.543248160602245" />
-      <entry key="M5" value="24.23913022585346" />
-      <entry key="M10" value="32.29594865613292" />
-      <entry key="M15" value="37.28165154046257" />
-      <entry key="M30" value="48.3726292872183" />
-      <entry key="H1" value="66.18752173462202" />
-      <entry key="H2" value="88.18557018072241" />
-      <entry key="H4" value="107.02708035697431" />
-      <entry key="D1" value="129.51747368677516" />
-      <entry key="W1" value="134.19367471527383" />
+      <entry key="MS100" value="1.000000529083954" />
+      <entry key="MS500" value="1.0555526675729106" />
+      <entry key="S2" value="1.4854854621711755" />
+      <entry key="S5" value="1.7489804672120912" />
+      <entry key="S10" value="1.8654365760771214" />
+      <entry key="S30" value="1.9529682144339913" />
+      <entry key="S60" value="1.9762009088471446" />
+      <entry key="M2" value="1.9880287999913762" />
+      <entry key="M5" value="1.9969392432355564" />
+      <entry key="M10" value="2.337100473668831" />
+      <entry key="M15" value="4.069401878382767" />
+      <entry key="M30" value="15.774242531210296" />
+      <entry key="H1" value="42.53120750508445" />
+      <entry key="H2" value="79.26019824645144" />
+      <entry key="H4" value="113.71713115300447" />
+      <entry key="D1" value="158.49512940080683" />
+      <entry key="W1" value="168.29371891204283" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.000043098584921" />
-      <entry key="S2" value="1.0819709585272201" />
-      <entry key="S5" value="1.427773919446191" />
-      <entry key="S10" value="1.8626309354121542" />
-      <entry key="S30" value="2.776447217048153" />
-      <entry key="S60" value="3.58839972057968" />
-      <entry key="M2" value="4.466477145156738" />
-      <entry key="M5" value="5.510275095368865" />
-      <entry key="M10" value="6.111758515151574" />
-      <entry key="M15" value="6.377709175854418" />
-      <entry key="M30" value="7.025078002759072" />
-      <entry key="H1" value="9.055433537111591" />
-      <entry key="H2" value="12.483521796793308" />
-      <entry key="H4" value="15.781727730938341" />
-      <entry key="D1" value="19.955257386290054" />
-      <entry key="W1" value="20.84578585001714" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="2.3275901807200372E-222" />
+      <entry key="S10" value="1.5256441854901938E-111" />
+      <entry key="S30" value="1.151202545172243E-37" />
+      <entry key="S60" value="3.399511419282291E-19" />
+      <entry key="M2" value="6.299115335220652E-10" />
+      <entry key="M5" value="4.251508774873869E-4" />
+      <entry key="M10" value="0.05857115445312294" />
+      <entry key="M15" value="0.3249755944659837" />
+      <entry key="M30" value="1.9187618303341176" />
+      <entry key="H1" value="5.395024810638212" />
+      <entry key="H2" value="10.549094384759558" />
+      <entry key="H4" value="15.803812375864753" />
+      <entry key="D1" value="23.07106005599151" />
+      <entry key="W1" value="24.712542070200715" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.562784872126629E-4" />
-      <entry key="MS500" value="0.19140252739385297" />
-      <entry key="S2" value="0.8358946630901485" />
-      <entry key="S5" value="1.9357480698923843" />
-      <entry key="S10" value="3.7080440352802313" />
-      <entry key="S30" value="9.224405063761445" />
-      <entry key="S60" value="14.296005756269516" />
-      <entry key="M2" value="19.89632675604056" />
-      <entry key="M5" value="29.691624432546682" />
-      <entry key="M10" value="38.3749240802889" />
-      <entry key="M15" value="43.63616076818031" />
-      <entry key="M30" value="55.384411211013045" />
-      <entry key="H1" value="75.2341762095142" />
-      <entry key="H2" value="100.66304003014962" />
-      <entry key="H4" value="122.80500100160577" />
-      <entry key="D1" value="149.47193349392364" />
-      <entry key="W1" value="155.0393416752805" />
+      <entry key="MS100" value="0.05219302335509781" />
+      <entry key="MS500" value="0.5849643886803699" />
+      <entry key="S2" value="1.282170774740007" />
+      <entry key="S5" value="1.6490747806039083" />
+      <entry key="S10" value="1.8113921328338578" />
+      <entry key="S30" value="1.9339272589098992" />
+      <entry key="S60" value="1.9665441242856323" />
+      <entry key="M2" value="1.9831656989619495" />
+      <entry key="M5" value="1.9953878600748203" />
+      <entry key="M10" value="2.39336874058762" />
+      <entry key="M15" value="4.389236132598597" />
+      <entry key="M30" value="17.680869834446714" />
+      <entry key="H1" value="47.911718816340255" />
+      <entry key="H2" value="89.79726455633346" />
+      <entry key="H4" value="129.51290395151625" />
+      <entry key="D1" value="181.56443361787427" />
+      <entry key="W1" value="193.00599744045832" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -571,7 +573,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784662464800</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Added player names to /spin command">
+      <option name="closed" value="true" />
+      <created>1784762727424</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1784762727424</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,7 +591,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added /profile" />
     <MESSAGE value="Added welcome role and welcome messages." />
     <MESSAGE value="Added null check for /profile" />
     <MESSAGE value="Switched back to nmsr.jgj52.hu and set image width from 256 to 128." />
@@ -606,6 +615,7 @@
     <MESSAGE value="Updates + uploaded emojis" />
     <MESSAGE value="Fixed an issue with opening tickets via commands" />
     <MESSAGE value="Fixed tier giving cooldown for LT3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed tier giving cooldown for LT3" />
+    <MESSAGE value="Added player names to /spin command" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added player names to /spin command" />
   </component>
 </project>
