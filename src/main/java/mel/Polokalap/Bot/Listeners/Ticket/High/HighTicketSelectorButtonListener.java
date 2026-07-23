@@ -82,7 +82,7 @@ public class HighTicketSelectorButtonListener extends ListenerAdapter {
 
         JsonObject json = JsonParser.parseString(response.body()).getAsJsonObject();
 
-        if (response.statusCode() >= 400 && response.statusCode() <= 499) {
+        if (response.statusCode() >= 400 && response.statusCode() <= 499 || !json.has("tiers")) {
 
             event.getHook()
                     .sendMessage(queue.get("not-registered").getAsString())
@@ -185,7 +185,7 @@ public class HighTicketSelectorButtonListener extends ListenerAdapter {
                     false
             ).getAsMention();
 
-            if (response.statusCode() >= 400 && response.statusCode() <= 499) {
+            if (response.statusCode() >= 400 && response.statusCode() <= 499 || !json.has("tiers")) {
 
                 event.getHook()
                         .sendMessage(panel.get("not-registered").getAsString())

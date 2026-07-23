@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Added player names to /spin command">
+    <list default="true" id="952bafdc-4f1e-4c01-bc39-45ebba48fa42" name="Changes" comment="Fixed an error with banning in /adminprofile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfilSelectorButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Profile/AdminProfilSelectorButtonListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/HighTestTicketUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/HighTestTicketUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/QueueUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/QueueUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TicketUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Utils/TicketUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueJoinLeaveButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueJoinLeaveButtonListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueStartSelectorButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Queue/Panel/QueueStartSelectorButtonListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/High/HighTicketSelectorButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Ticket/High/HighTicketSelectorButtonListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Welcome/UserJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mel/Polokalap/Bot/Listeners/Welcome/UserJoinListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hu_HU.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hu_HU.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,61 +91,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.000000529083954" />
-      <entry key="MS500" value="1.0555526675729106" />
-      <entry key="S2" value="1.4854854621711755" />
-      <entry key="S5" value="1.7489804672120912" />
-      <entry key="S10" value="1.8654365760771214" />
-      <entry key="S30" value="1.9529682144339913" />
-      <entry key="S60" value="1.9762009088471446" />
-      <entry key="M2" value="1.9880287999913762" />
-      <entry key="M5" value="1.9969392432355564" />
-      <entry key="M10" value="2.337100473668831" />
-      <entry key="M15" value="4.069401878382767" />
-      <entry key="M30" value="15.774242531210296" />
-      <entry key="H1" value="42.53120750508445" />
-      <entry key="H2" value="79.26019824645144" />
-      <entry key="H4" value="113.71713115300447" />
-      <entry key="D1" value="158.49512940080683" />
-      <entry key="W1" value="168.29371891204283" />
+      <entry key="MS100" value="1.0007400959841282" />
+      <entry key="MS500" value="1.2418653217593896" />
+      <entry key="S2" value="1.9678342429333089" />
+      <entry key="S5" value="2.4584472625103864" />
+      <entry key="S10" value="2.7003267238575592" />
+      <entry key="S30" value="2.8927741629924264" />
+      <entry key="S60" value="2.9454062090489432" />
+      <entry key="M2" value="2.972497932783395" />
+      <entry key="M5" value="3.0788808931447877" />
+      <entry key="M10" value="4.826005411397006" />
+      <entry key="M15" value="8.516396717386975" />
+      <entry key="M30" value="23.30107710865029" />
+      <entry key="H1" value="56.30130648199971" />
+      <entry key="H2" value="112.213223109138" />
+      <entry key="H4" value="176.65016475083056" />
+      <entry key="D1" value="277.20187509861455" />
+      <entry key="W1" value="301.6541212930431" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="2.3275901807200372E-222" />
-      <entry key="S10" value="1.5256441854901938E-111" />
-      <entry key="S30" value="1.151202545172243E-37" />
-      <entry key="S60" value="3.399511419282291E-19" />
-      <entry key="M2" value="6.299115335220652E-10" />
-      <entry key="M5" value="4.251508774873869E-4" />
-      <entry key="M10" value="0.05857115445312294" />
-      <entry key="M15" value="0.3249755944659837" />
-      <entry key="M30" value="1.9187618303341176" />
-      <entry key="H1" value="5.395024810638212" />
-      <entry key="H2" value="10.549094384759558" />
-      <entry key="H4" value="15.803812375864753" />
-      <entry key="D1" value="23.07106005599151" />
-      <entry key="W1" value="24.712542070200715" />
+      <entry key="S2" value="1.8610853011766244E-297" />
+      <entry key="S5" value="2.0319206102250282E-119" />
+      <entry key="S10" value="4.5123983125122227E-60" />
+      <entry key="S30" value="1.9699249147763388E-20" />
+      <entry key="S60" value="2.3066677181487268E-10" />
+      <entry key="M2" value="3.250331151026079E-5" />
+      <entry key="M5" value="0.05476534351986479" />
+      <entry key="M10" value="0.8703740454001447" />
+      <entry key="M15" value="2.4304620004496" />
+      <entry key="M30" value="7.744262466710811" />
+      <entry key="H1" value="16.19660792487466" />
+      <entry key="H2" value="27.047541710053473" />
+      <entry key="H4" value="38.240427865732855" />
+      <entry key="D1" value="55.166574105005886" />
+      <entry key="W1" value="59.27025635924461" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.05219302335509781" />
-      <entry key="MS500" value="0.5849643886803699" />
-      <entry key="S2" value="1.282170774740007" />
-      <entry key="S5" value="1.6490747806039083" />
-      <entry key="S10" value="1.8113921328338578" />
-      <entry key="S30" value="1.9339272589098992" />
-      <entry key="S60" value="1.9665441242856323" />
-      <entry key="M2" value="1.9831656989619495" />
-      <entry key="M5" value="1.9953878600748203" />
-      <entry key="M10" value="2.39336874058762" />
-      <entry key="M15" value="4.389236132598597" />
-      <entry key="M30" value="17.680869834446714" />
-      <entry key="H1" value="47.911718816340255" />
-      <entry key="H2" value="89.79726455633346" />
-      <entry key="H4" value="129.51290395151625" />
-      <entry key="D1" value="181.56443361787427" />
-      <entry key="W1" value="193.00599744045832" />
+      <entry key="MS100" value="8.212871676507017E-4" />
+      <entry key="MS500" value="0.3487346517573336" />
+      <entry key="S2" value="1.5358169455246637" />
+      <entry key="S5" value="2.2553609250518845" />
+      <entry key="S10" value="2.5928953515171838" />
+      <entry key="S30" value="2.8555645770161107" />
+      <entry key="S60" value="2.9266204969001555" />
+      <entry key="M2" value="2.963091398832911" />
+      <entry key="M5" value="3.1295638024877315" />
+      <entry key="M10" value="5.6920356898806075" />
+      <entry key="M15" value="10.94083371764649" />
+      <entry key="M30" value="31.035139836201036" />
+      <entry key="H1" value="72.48315401301119" />
+      <entry key="H2" value="139.24504890754406" />
+      <entry key="H4" value="214.87817222047326" />
+      <entry key="D1" value="332.3652578692079" />
+      <entry key="W1" value="360.92388401278265" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -201,7 +204,7 @@
       <recent name="mel.Polokalap.Bot.Listeners.Ticket.Panel" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.RankedBOT [build]">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="mel.Polokalap.Bot.Main" />
       <module name="RankedBOT.main" />
@@ -581,7 +584,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784762727424</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Fixed an error with banning in /adminprofile">
+      <option name="closed" value="true" />
+      <created>1784829057026</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1784829057026</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,7 +602,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added welcome role and welcome messages." />
     <MESSAGE value="Added null check for /profile" />
     <MESSAGE value="Switched back to nmsr.jgj52.hu and set image width from 256 to 128." />
     <MESSAGE value="Made it so when the amount of gamemodes % 3 isn't 0m it adds empty columns until it's 0, so it's symmetric." />
@@ -616,6 +626,7 @@
     <MESSAGE value="Fixed an issue with opening tickets via commands" />
     <MESSAGE value="Fixed tier giving cooldown for LT3" />
     <MESSAGE value="Added player names to /spin command" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added player names to /spin command" />
+    <MESSAGE value="Fixed an error with banning in /adminprofile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed an error with banning in /adminprofile" />
   </component>
 </project>

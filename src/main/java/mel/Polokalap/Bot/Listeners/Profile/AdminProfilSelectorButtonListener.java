@@ -12,9 +12,7 @@ import net.dv8tion.jda.api.components.buttons.Button;
 import net.dv8tion.jda.api.components.label.Label;
 import net.dv8tion.jda.api.components.textinput.TextInput;
 import net.dv8tion.jda.api.components.textinput.TextInputStyle;
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.interaction.ModalInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
@@ -114,6 +112,20 @@ public class AdminProfilSelectorButtonListener extends ListenerAdapter {
                             .replace("%player%", "<@" + userId + ">")
             ).setEphemeral(true).queue();
 
+            Role bannedRole = guild.getRoleById(data.get("banned-role").getAsString());
+
+            guild.retrieveMemberById(userId).queue(
+
+                    user -> {
+
+                        guild.removeRoleFromMember(user, bannedRole).queue();
+
+                    }
+
+            );
+
+            return;
+
         }
 
         if (id.startsWith("admin-command-ban-")) {
@@ -133,16 +145,43 @@ public class AdminProfilSelectorButtonListener extends ListenerAdapter {
                             .replace("%player%", "<@" + userId + ">")
             ).setEphemeral(true).queue();
 
+            Role bannedRole = guild.getRoleById(data.get("banned-role").getAsString());
+
+            guild.retrieveMemberById(userId).queue(
+
+                    user -> {
+
+                        guild.addRoleToMember(user, bannedRole).queue();
+
+                    }
+
+            );
+
+            return;
+
         }
 
         int actualId = adminGamemode.getOrDefault(message, -1);
 
         if (actualId == -1) {
 
-            event.deferReply(true).queue();
+            if (
+                    id.startsWith("admin-command-remove-cooldown-") ||
+                    id.startsWith("admin-command-make-tester-") ||
+                    id.startsWith("admin-command-revoke-tester-") ||
+                    id.startsWith("admin-command-set-tier-") ||
+                    id.startsWith("admin-command-remove-tier-") ||
+                    id.startsWith("admin-command-set-retired-") ||
+                    id.startsWith("admin-command-remove-retired-") ||
+                    id.startsWith("admin-command-set-defense-")
+            ) {
 
-            event.getHook().sendMessage(profile.get("no-gamemode").getAsString()).setEphemeral(true).queue();
-            return;
+                event.deferReply(true).queue();
+
+                event.getHook().sendMessage(profile.get("no-gamemode").getAsString()).setEphemeral(true).queue();
+                return;
+
+            }
 
         }
 

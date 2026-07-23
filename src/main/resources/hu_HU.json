@@ -469,6 +469,7 @@
       "description": "Admin profil parancs",
       "permission": "Nincsen jogod ehhez!",
       "missing": "Állíts be egy játékost!",
+      "fail": "Nem találtuk a felhasználót!",
       "gamemode-selected": "Kiválasztottad a %gamemode% játékmódot!",
       "no-gamemode": "Nincs játékmód kiválasztva!",
       "removed-cooldown": "A cooldown le lett véve a %gamemode% játékmódról %player% játékosról!",

@@ -3,15 +3,22 @@ package mel.Polokalap.Bot.Listeners.Welcome;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
 import static mel.Polokalap.Bot.Main.*;
 
@@ -73,6 +80,32 @@ public class UserJoinListener extends ListenerAdapter {
         );;
 
         guild.addRoleToMember(member, guild.getRoleById(data.get("default-role").getAsLong())).queue();
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://api.ranked.hu/v1/player?discord_id=" + member.getId()))
+                .GET()
+                .build();
+
+        HttpResponse<String> response = null;
+        try {
+            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        if (response.statusCode() >= 400 && response.statusCode() <= 500) return;
+
+        JsonObject json = JsonParser.parseString(response.body()).getAsJsonObject();
+
+        if (!json.get("banned").getAsBoolean()) return;
+
+        Role bannedRole = guild.getRoleById(data.get("banned-role").getAsString());
+
+        guild.addRoleToMember(member, bannedRole).queue();
 
     }
 
